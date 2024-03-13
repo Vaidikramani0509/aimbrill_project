@@ -1,0 +1,32 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["views"]
+  binaryTargets   = ["native"]
+}
+
+generator typegraphql {
+  provider            = "typegraphql-prisma"
+  output              = "./__generated__/graphql"
+  previewFeatures     = ["views"]
+  binaryTargets       = ["native"]
+  useSimpleInputs     = "true"
+  formatGeneratedCode = "prettier"
+  simpleResolvers     = "true"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model employees {
+  employeeid     Int       @id @default(autoincrement())
+  employeename   String?   @db.VarChar(100)
+  employeestatus String?   @db.VarChar(50)
+  joiningdate    DateTime? @db.Date
+  birthdate      DateTime? @db.Date
+  skills         String?
+  salarydetails  Decimal?  @db.Decimal(10, 2)
+  address        String?
+}

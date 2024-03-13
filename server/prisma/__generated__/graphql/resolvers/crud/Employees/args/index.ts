@@ -1,0 +1,14 @@
+export { AggregateEmployeesArgs } from "./AggregateEmployeesArgs";
+export { CreateManyEmployeesArgs } from "./CreateManyEmployeesArgs";
+export { CreateOneEmployeesArgs } from "./CreateOneEmployeesArgs";
+export { DeleteManyEmployeesArgs } from "./DeleteManyEmployeesArgs";
+export { DeleteOneEmployeesArgs } from "./DeleteOneEmployeesArgs";
+export { FindFirstEmployeesArgs } from "./FindFirstEmployeesArgs";
+export { FindFirstEmployeesOrThrowArgs } from "./FindFirstEmployeesOrThrowArgs";
+export { FindManyEmployeesArgs } from "./FindManyEmployeesArgs";
+export { FindUniqueEmployeesArgs } from "./FindUniqueEmployeesArgs";
+export { FindUniqueEmployeesOrThrowArgs } from "./FindUniqueEmployeesOrThrowArgs";
+export { GroupByEmployeesArgs } from "./GroupByEmployeesArgs";
+export { UpdateManyEmployeesArgs } from "./UpdateManyEmployeesArgs";
+export { UpdateOneEmployeesArgs } from "./UpdateOneEmployeesArgs";
+export { UpsertOneEmployeesArgs } from "./UpsertOneEmployeesArgs";
