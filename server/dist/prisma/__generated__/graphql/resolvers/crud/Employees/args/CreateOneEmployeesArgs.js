@@ -40,9 +40,9 @@ let CreateOneEmployeesArgs = class CreateOneEmployeesArgs {
 exports.CreateOneEmployeesArgs = CreateOneEmployeesArgs;
 __decorate([
     TypeGraphQL.Field(_type => EmployeesCreateInput_1.EmployeesCreateInput, {
-        nullable: true
+        nullable: false
     }),
-    __metadata("design:type", Object)
+    __metadata("design:type", EmployeesCreateInput_1.EmployeesCreateInput)
 ], CreateOneEmployeesArgs.prototype, "data", void 0);
 exports.CreateOneEmployeesArgs = CreateOneEmployeesArgs = __decorate([
     TypeGraphQL.ArgsType()

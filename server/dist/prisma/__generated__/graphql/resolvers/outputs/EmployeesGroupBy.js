@@ -34,12 +34,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeesGroupBy = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const scalars_1 = require("../../scalars");
 const EmployeesAvgAggregate_1 = require("../outputs/EmployeesAvgAggregate");
 const EmployeesCountAggregate_1 = require("../outputs/EmployeesCountAggregate");
 const EmployeesMaxAggregate_1 = require("../outputs/EmployeesMaxAggregate");
 const EmployeesMinAggregate_1 = require("../outputs/EmployeesMinAggregate");
 const EmployeesSumAggregate_1 = require("../outputs/EmployeesSumAggregate");
+const Empstatus_1 = require("../../enums/Empstatus");
 let EmployeesGroupBy = class EmployeesGroupBy {
 };
 exports.EmployeesGroupBy = EmployeesGroupBy;
@@ -56,34 +56,34 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesGroupBy.prototype, "employeename", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => String, {
-        nullable: true
+    TypeGraphQL.Field(_type => Empstatus_1.Empstatus, {
+        nullable: false
     }),
-    __metadata("design:type", Object)
+    __metadata("design:type", String)
 ], EmployeesGroupBy.prototype, "employeestatus", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
-        nullable: true
+        nullable: false
     }),
-    __metadata("design:type", Object)
+    __metadata("design:type", Date)
 ], EmployeesGroupBy.prototype, "joiningdate", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
-        nullable: true
+        nullable: false
     }),
-    __metadata("design:type", Object)
+    __metadata("design:type", Date)
 ], EmployeesGroupBy.prototype, "birthdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => String, {
+    TypeGraphQL.Field(_type => [String], {
         nullable: true
     }),
     __metadata("design:type", Object)
 ], EmployeesGroupBy.prototype, "skills", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => scalars_1.DecimalJSScalar, {
-        nullable: true
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+        nullable: false
     }),
-    __metadata("design:type", Object)
+    __metadata("design:type", Number)
 ], EmployeesGroupBy.prototype, "salarydetails", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {

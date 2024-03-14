@@ -1,8 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TransactionIsolationLevel = exports.SortOrder = exports.QueryMode = exports.NullsOrder = exports.EmployeesScalarFieldEnum = void 0;
+exports.TransactionIsolationLevel = exports.SortOrder = exports.QueryMode = exports.NullsOrder = exports.Empstatus = exports.EmployeesScalarFieldEnum = void 0;
 var EmployeesScalarFieldEnum_1 = require("./EmployeesScalarFieldEnum");
 Object.defineProperty(exports, "EmployeesScalarFieldEnum", { enumerable: true, get: function () { return EmployeesScalarFieldEnum_1.EmployeesScalarFieldEnum; } });
+var Empstatus_1 = require("./Empstatus");
+Object.defineProperty(exports, "Empstatus", { enumerable: true, get: function () { return Empstatus_1.Empstatus; } });
 var NullsOrder_1 = require("./NullsOrder");
 Object.defineProperty(exports, "NullsOrder", { enumerable: true, get: function () { return NullsOrder_1.NullsOrder; } });
 var QueryMode_1 = require("./QueryMode");

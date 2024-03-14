@@ -4,7 +4,6 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EnumEmpstatusFilter } from "../inputs/EnumEmpstatusFilter";
-import { FloatFilter } from "../inputs/FloatFilter";
 import { IntFilter } from "../inputs/IntFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
 import { StringNullableListFilter } from "../inputs/StringNullableListFilter";
@@ -56,10 +55,10 @@ export class EmployeesWhereInput {
         })
     skills?: StringNullableListFilter | undefined;
 
-    @TypeGraphQL.Field(_type => FloatFilter, {
+    @TypeGraphQL.Field(_type => IntFilter, {
             nullable: true
         })
-    salarydetails?: FloatFilter | undefined;
+    salarydetails?: IntFilter | undefined;
 
     @TypeGraphQL.Field(_type => StringNullableFilter, {
             nullable: true

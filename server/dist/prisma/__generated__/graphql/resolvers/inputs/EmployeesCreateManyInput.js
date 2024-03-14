@@ -34,7 +34,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeesCreateManyInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const scalars_1 = require("../../scalars");
+const Empstatus_1 = require("../../enums/Empstatus");
 let EmployeesCreateManyInput = class EmployeesCreateManyInput {
 };
 exports.EmployeesCreateManyInput = EmployeesCreateManyInput;
@@ -51,34 +51,34 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesCreateManyInput.prototype, "employeename", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => String, {
-        nullable: true
+    TypeGraphQL.Field(_type => Empstatus_1.Empstatus, {
+        nullable: false
     }),
-    __metadata("design:type", Object)
+    __metadata("design:type", String)
 ], EmployeesCreateManyInput.prototype, "employeestatus", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
-        nullable: true
+        nullable: false
     }),
-    __metadata("design:type", Object)
+    __metadata("design:type", Date)
 ], EmployeesCreateManyInput.prototype, "joiningdate", void 0);
 __decorate([
     TypeGraphQL.Field(_type => Date, {
-        nullable: true
+        nullable: false
     }),
-    __metadata("design:type", Object)
+    __metadata("design:type", Date)
 ], EmployeesCreateManyInput.prototype, "birthdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => String, {
+    TypeGraphQL.Field(_type => [String], {
         nullable: true
     }),
     __metadata("design:type", Object)
 ], EmployeesCreateManyInput.prototype, "skills", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => scalars_1.DecimalJSScalar, {
-        nullable: true
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+        nullable: false
     }),
-    __metadata("design:type", Object)
+    __metadata("design:type", Number)
 ], EmployeesCreateManyInput.prototype, "salarydetails", void 0);
 __decorate([
     TypeGraphQL.Field(_type => String, {

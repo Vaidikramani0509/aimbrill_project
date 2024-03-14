@@ -34,9 +34,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeesScalarWhereWithAggregatesInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const DateTimeNullableWithAggregatesFilter_1 = require("../inputs/DateTimeNullableWithAggregatesFilter");
-const DecimalNullableWithAggregatesFilter_1 = require("../inputs/DecimalNullableWithAggregatesFilter");
+const DateTimeWithAggregatesFilter_1 = require("../inputs/DateTimeWithAggregatesFilter");
+const EnumEmpstatusWithAggregatesFilter_1 = require("../inputs/EnumEmpstatusWithAggregatesFilter");
 const IntWithAggregatesFilter_1 = require("../inputs/IntWithAggregatesFilter");
+const StringNullableListFilter_1 = require("../inputs/StringNullableListFilter");
 const StringNullableWithAggregatesFilter_1 = require("../inputs/StringNullableWithAggregatesFilter");
 let EmployeesScalarWhereWithAggregatesInput = class EmployeesScalarWhereWithAggregatesInput {
 };
@@ -72,31 +73,31 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesScalarWhereWithAggregatesInput.prototype, "employeename", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => EnumEmpstatusWithAggregatesFilter_1.EnumEmpstatusWithAggregatesFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)
 ], EmployeesScalarWhereWithAggregatesInput.prototype, "employeestatus", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DateTimeNullableWithAggregatesFilter_1.DateTimeNullableWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)
 ], EmployeesScalarWhereWithAggregatesInput.prototype, "joiningdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DateTimeNullableWithAggregatesFilter_1.DateTimeNullableWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)
 ], EmployeesScalarWhereWithAggregatesInput.prototype, "birthdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => StringNullableListFilter_1.StringNullableListFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)
 ], EmployeesScalarWhereWithAggregatesInput.prototype, "skills", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DecimalNullableWithAggregatesFilter_1.DecimalNullableWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => IntWithAggregatesFilter_1.IntWithAggregatesFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)

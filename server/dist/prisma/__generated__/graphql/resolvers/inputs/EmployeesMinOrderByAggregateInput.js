@@ -73,12 +73,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Object)
-], EmployeesMinOrderByAggregateInput.prototype, "skills", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
 ], EmployeesMinOrderByAggregateInput.prototype, "salarydetails", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {

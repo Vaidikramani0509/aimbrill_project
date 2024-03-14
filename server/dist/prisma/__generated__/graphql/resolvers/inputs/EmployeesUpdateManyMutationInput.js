@@ -34,7 +34,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeesUpdateManyMutationInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const scalars_1 = require("../../scalars");
+const Empstatus_1 = require("../../enums/Empstatus");
 let EmployeesUpdateManyMutationInput = class EmployeesUpdateManyMutationInput {
 };
 exports.EmployeesUpdateManyMutationInput = EmployeesUpdateManyMutationInput;
@@ -45,7 +45,7 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesUpdateManyMutationInput.prototype, "employeename", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => String, {
+    TypeGraphQL.Field(_type => Empstatus_1.Empstatus, {
         nullable: true
     }),
     __metadata("design:type", Object)
@@ -63,13 +63,13 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesUpdateManyMutationInput.prototype, "birthdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => String, {
+    TypeGraphQL.Field(_type => [String], {
         nullable: true
     }),
     __metadata("design:type", Object)
 ], EmployeesUpdateManyMutationInput.prototype, "skills", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => scalars_1.DecimalJSScalar, {
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: true
     }),
     __metadata("design:type", Object)

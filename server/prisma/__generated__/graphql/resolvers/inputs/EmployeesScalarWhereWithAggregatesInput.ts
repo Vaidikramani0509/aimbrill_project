@@ -4,7 +4,6 @@ import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
 import { EnumEmpstatusWithAggregatesFilter } from "../inputs/EnumEmpstatusWithAggregatesFilter";
-import { FloatWithAggregatesFilter } from "../inputs/FloatWithAggregatesFilter";
 import { IntWithAggregatesFilter } from "../inputs/IntWithAggregatesFilter";
 import { StringNullableListFilter } from "../inputs/StringNullableListFilter";
 import { StringNullableWithAggregatesFilter } from "../inputs/StringNullableWithAggregatesFilter";
@@ -56,10 +55,10 @@ export class EmployeesScalarWhereWithAggregatesInput {
         })
     skills?: StringNullableListFilter | undefined;
 
-    @TypeGraphQL.Field(_type => FloatWithAggregatesFilter, {
+    @TypeGraphQL.Field(_type => IntWithAggregatesFilter, {
             nullable: true
         })
-    salarydetails?: FloatWithAggregatesFilter | undefined;
+    salarydetails?: IntWithAggregatesFilter | undefined;
 
     @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
             nullable: true

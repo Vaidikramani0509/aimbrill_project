@@ -34,10 +34,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeesWhereInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const DateTimeNullableFilter_1 = require("../inputs/DateTimeNullableFilter");
-const DecimalNullableFilter_1 = require("../inputs/DecimalNullableFilter");
+const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
+const EnumEmpstatusFilter_1 = require("../inputs/EnumEmpstatusFilter");
 const IntFilter_1 = require("../inputs/IntFilter");
 const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
+const StringNullableListFilter_1 = require("../inputs/StringNullableListFilter");
 let EmployeesWhereInput = class EmployeesWhereInput {
 };
 exports.EmployeesWhereInput = EmployeesWhereInput;
@@ -72,31 +73,31 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesWhereInput.prototype, "employeename", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
+    TypeGraphQL.Field(_type => EnumEmpstatusFilter_1.EnumEmpstatusFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)
 ], EmployeesWhereInput.prototype, "employeestatus", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DateTimeNullableFilter_1.DateTimeNullableFilter, {
+    TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)
 ], EmployeesWhereInput.prototype, "joiningdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DateTimeNullableFilter_1.DateTimeNullableFilter, {
+    TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)
 ], EmployeesWhereInput.prototype, "birthdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
+    TypeGraphQL.Field(_type => StringNullableListFilter_1.StringNullableListFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)
 ], EmployeesWhereInput.prototype, "skills", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DecimalNullableFilter_1.DecimalNullableFilter, {
+    TypeGraphQL.Field(_type => IntFilter_1.IntFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)

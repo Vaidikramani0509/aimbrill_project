@@ -20,9 +20,6 @@ export { EmployeesWhereUniqueInput } from "./EmployeesWhereUniqueInput";
 export { EnumEmpstatusFieldUpdateOperationsInput } from "./EnumEmpstatusFieldUpdateOperationsInput";
 export { EnumEmpstatusFilter } from "./EnumEmpstatusFilter";
 export { EnumEmpstatusWithAggregatesFilter } from "./EnumEmpstatusWithAggregatesFilter";
-export { FloatFieldUpdateOperationsInput } from "./FloatFieldUpdateOperationsInput";
-export { FloatFilter } from "./FloatFilter";
-export { FloatWithAggregatesFilter } from "./FloatWithAggregatesFilter";
 export { IntFieldUpdateOperationsInput } from "./IntFieldUpdateOperationsInput";
 export { IntFilter } from "./IntFilter";
 export { IntWithAggregatesFilter } from "./IntWithAggregatesFilter";
@@ -31,7 +28,6 @@ export { NestedDateTimeWithAggregatesFilter } from "./NestedDateTimeWithAggregat
 export { NestedEnumEmpstatusFilter } from "./NestedEnumEmpstatusFilter";
 export { NestedEnumEmpstatusWithAggregatesFilter } from "./NestedEnumEmpstatusWithAggregatesFilter";
 export { NestedFloatFilter } from "./NestedFloatFilter";
-export { NestedFloatWithAggregatesFilter } from "./NestedFloatWithAggregatesFilter";
 export { NestedIntFilter } from "./NestedIntFilter";
 export { NestedIntNullableFilter } from "./NestedIntNullableFilter";
 export { NestedIntWithAggregatesFilter } from "./NestedIntWithAggregatesFilter";

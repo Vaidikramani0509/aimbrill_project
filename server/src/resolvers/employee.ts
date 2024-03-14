@@ -12,7 +12,6 @@ import {
   Resolver,
 } from "type-graphql";
 import { Employee } from "../entities/Employee";
-import { Employees } from "../../prisma/__generated__/graphql";
 
 @ObjectType()
 class FieldError {

@@ -43,7 +43,7 @@ export class EmployeesGroupBy {
         })
     skills!: string[] | null;
 
-    @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
             nullable: false
         })
     salarydetails!: number;

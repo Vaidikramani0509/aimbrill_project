@@ -34,7 +34,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeesSumAggregate = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const scalars_1 = require("../../scalars");
 let EmployeesSumAggregate = class EmployeesSumAggregate {
 };
 exports.EmployeesSumAggregate = EmployeesSumAggregate;
@@ -45,7 +44,7 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesSumAggregate.prototype, "employeeid", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => scalars_1.DecimalJSScalar, {
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: true
     }),
     __metadata("design:type", Object)

@@ -27,7 +27,7 @@ model employees {
   joiningdate    DateTime 
   birthdate      DateTime
   skills         String[]
-  salarydetails  Float
+  salarydetails  Int
   address        String?
 }
 enum Empstatus{

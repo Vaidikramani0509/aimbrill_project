@@ -12,7 +12,7 @@ export class EmployeesSumAggregate {
         })
     employeeid!: number | null;
 
-    @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
             nullable: true
         })
     salarydetails!: number | null;

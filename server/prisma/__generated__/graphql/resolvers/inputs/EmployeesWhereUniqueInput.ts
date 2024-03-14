@@ -5,7 +5,7 @@ import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EmployeesWhereInput } from "../inputs/EmployeesWhereInput";
 import { EnumEmpstatusFilter } from "../inputs/EnumEmpstatusFilter";
-import { FloatFilter } from "../inputs/FloatFilter";
+import { IntFilter } from "../inputs/IntFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
 import { StringNullableListFilter } from "../inputs/StringNullableListFilter";
 
@@ -56,10 +56,10 @@ export class EmployeesWhereUniqueInput {
         })
     skills?: StringNullableListFilter | undefined;
 
-    @TypeGraphQL.Field(_type => FloatFilter, {
+    @TypeGraphQL.Field(_type => IntFilter, {
             nullable: true
         })
-    salarydetails?: FloatFilter | undefined;
+    salarydetails?: IntFilter | undefined;
 
     @TypeGraphQL.Field(_type => StringNullableFilter, {
             nullable: true

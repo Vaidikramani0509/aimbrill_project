@@ -36,7 +36,7 @@ export class EmployeesCreateManyInput {
         })
     skills?: string[] | undefined;
 
-    @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
             nullable: false
         })
     salarydetails!: number;
