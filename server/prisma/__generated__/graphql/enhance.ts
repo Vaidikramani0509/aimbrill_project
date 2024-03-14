@@ -230,8 +230,8 @@ const outputsInfo = {
         EmployeesCountAggregate: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address", "_all"],
         EmployeesAvgAggregate: ["employeeid", "salarydetails"],
         EmployeesSumAggregate: ["employeeid", "salarydetails"],
-        EmployeesMinAggregate: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
-        EmployeesMaxAggregate: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"]
+        EmployeesMinAggregate: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "salarydetails", "address"],
+        EmployeesMaxAggregate: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "salarydetails", "address"]
     };
 
       type OutputTypesNames = keyof typeof outputTypes;
@@ -283,32 +283,39 @@ const inputsInfo = {
         EmployeesUpdateManyMutationInput: ["employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
         IntFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
         StringNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not"],
-        DateTimeNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
-        DecimalNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
+        EnumEmpstatusFilter: ["equals", "in", "notIn", "not"],
+        DateTimeFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
+        StringNullableListFilter: ["equals", "has", "hasEvery", "hasSome", "isEmpty"],
+        FloatFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
         SortOrderInput: ["sort", "nulls"],
         EmployeesCountOrderByAggregateInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
         EmployeesAvgOrderByAggregateInput: ["employeeid", "salarydetails"],
-        EmployeesMaxOrderByAggregateInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
-        EmployeesMinOrderByAggregateInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
+        EmployeesMaxOrderByAggregateInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "salarydetails", "address"],
+        EmployeesMinOrderByAggregateInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "salarydetails", "address"],
         EmployeesSumOrderByAggregateInput: ["employeeid", "salarydetails"],
         IntWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"],
         StringNullableWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not", "_count", "_min", "_max"],
-        DateTimeNullableWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_min", "_max"],
-        DecimalNullableWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"],
+        EnumEmpstatusWithAggregatesFilter: ["equals", "in", "notIn", "not", "_count", "_min", "_max"],
+        DateTimeWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_min", "_max"],
+        FloatWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"],
+        EmployeesCreateskillsInput: ["set"],
         NullableStringFieldUpdateOperationsInput: ["set"],
-        NullableDateTimeFieldUpdateOperationsInput: ["set"],
-        NullableDecimalFieldUpdateOperationsInput: ["set", "increment", "decrement", "multiply", "divide"],
+        EnumEmpstatusFieldUpdateOperationsInput: ["set"],
+        DateTimeFieldUpdateOperationsInput: ["set"],
+        EmployeesUpdateskillsInput: ["set", "push"],
+        FloatFieldUpdateOperationsInput: ["set", "increment", "decrement", "multiply", "divide"],
         IntFieldUpdateOperationsInput: ["set", "increment", "decrement", "multiply", "divide"],
         NestedIntFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
         NestedStringNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not"],
-        NestedDateTimeNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
-        NestedDecimalNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
-        NestedIntWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"],
+        NestedEnumEmpstatusFilter: ["equals", "in", "notIn", "not"],
+        NestedDateTimeFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
         NestedFloatFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
+        NestedIntWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"],
         NestedStringNullableWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not", "_count", "_min", "_max"],
         NestedIntNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
-        NestedDateTimeNullableWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_min", "_max"],
-        NestedDecimalNullableWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"]
+        NestedEnumEmpstatusWithAggregatesFilter: ["equals", "in", "notIn", "not", "_count", "_min", "_max"],
+        NestedDateTimeWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_min", "_max"],
+        NestedFloatWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"]
     };
 
       type InputTypesNames = keyof typeof inputTypes;

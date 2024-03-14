@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../scalars";
+import { Empstatus } from "../enums/Empstatus";
 
 @TypeGraphQL.ObjectType("Employees", {
         simpleResolvers: true
@@ -17,30 +18,30 @@ export class Employees {
         })
     employeename?: string | null;
 
-    @TypeGraphQL.Field(_type => String, {
-            nullable: true
+    @TypeGraphQL.Field(_type => Empstatus, {
+            nullable: false
         })
-    employeestatus?: string | null;
+    employeestatus!: "ACTIVE" | "INACTIVE";
 
     @TypeGraphQL.Field(_type => Date, {
-            nullable: true
+            nullable: false
         })
-    joiningdate?: Date | null;
+    joiningdate!: Date;
 
     @TypeGraphQL.Field(_type => Date, {
-            nullable: true
+            nullable: false
         })
-    birthdate?: Date | null;
+    birthdate!: Date;
 
-    @TypeGraphQL.Field(_type => String, {
-            nullable: true
+    @TypeGraphQL.Field(_type => [String], {
+            nullable: false
         })
-    skills?: string | null;
+    skills!: string[];
 
-    @TypeGraphQL.Field(_type => DecimalJSScalar, {
-            nullable: true
+    @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+            nullable: false
         })
-    salarydetails?: Prisma.Decimal | null;
+    salarydetails!: number;
 
     @TypeGraphQL.Field(_type => String, {
             nullable: true

@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EmployeesSumAggregate = exports.EmployeesMinAggregate = exports.EmployeesMaxAggregate = exports.EmployeesGroupBy = exports.EmployeesCountAggregate = exports.EmployeesAvgAggregate = exports.AggregateEmployees = exports.AffectedRowsOutput = void 0;
+var AffectedRowsOutput_1 = require("./AffectedRowsOutput");
+Object.defineProperty(exports, "AffectedRowsOutput", { enumerable: true, get: function () { return AffectedRowsOutput_1.AffectedRowsOutput; } });
+var AggregateEmployees_1 = require("./AggregateEmployees");
+Object.defineProperty(exports, "AggregateEmployees", { enumerable: true, get: function () { return AggregateEmployees_1.AggregateEmployees; } });
+var EmployeesAvgAggregate_1 = require("./EmployeesAvgAggregate");
+Object.defineProperty(exports, "EmployeesAvgAggregate", { enumerable: true, get: function () { return EmployeesAvgAggregate_1.EmployeesAvgAggregate; } });
+var EmployeesCountAggregate_1 = require("./EmployeesCountAggregate");
+Object.defineProperty(exports, "EmployeesCountAggregate", { enumerable: true, get: function () { return EmployeesCountAggregate_1.EmployeesCountAggregate; } });
+var EmployeesGroupBy_1 = require("./EmployeesGroupBy");
+Object.defineProperty(exports, "EmployeesGroupBy", { enumerable: true, get: function () { return EmployeesGroupBy_1.EmployeesGroupBy; } });
+var EmployeesMaxAggregate_1 = require("./EmployeesMaxAggregate");
+Object.defineProperty(exports, "EmployeesMaxAggregate", { enumerable: true, get: function () { return EmployeesMaxAggregate_1.EmployeesMaxAggregate; } });
+var EmployeesMinAggregate_1 = require("./EmployeesMinAggregate");
+Object.defineProperty(exports, "EmployeesMinAggregate", { enumerable: true, get: function () { return EmployeesMinAggregate_1.EmployeesMinAggregate; } });
+var EmployeesSumAggregate_1 = require("./EmployeesSumAggregate");
+Object.defineProperty(exports, "EmployeesSumAggregate", { enumerable: true, get: function () { return EmployeesSumAggregate_1.EmployeesSumAggregate; } });
+//# sourceMappingURL=index.js.map

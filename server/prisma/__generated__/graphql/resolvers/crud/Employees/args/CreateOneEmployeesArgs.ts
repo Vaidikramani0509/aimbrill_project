@@ -5,7 +5,7 @@ import { EmployeesCreateInput } from "../../../inputs/EmployeesCreateInput";
 @TypeGraphQL.ArgsType()
 export class CreateOneEmployeesArgs {
     @TypeGraphQL.Field(_type => EmployeesCreateInput, {
-            nullable: true
+            nullable: false
         })
-    data?: EmployeesCreateInput | undefined;
+    data!: EmployeesCreateInput;
 }

@@ -2,10 +2,12 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { DateTimeNullableFilter } from "../inputs/DateTimeNullableFilter";
-import { DecimalNullableFilter } from "../inputs/DecimalNullableFilter";
+import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EmployeesWhereInput } from "../inputs/EmployeesWhereInput";
+import { EnumEmpstatusFilter } from "../inputs/EnumEmpstatusFilter";
+import { FloatFilter } from "../inputs/FloatFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
+import { StringNullableListFilter } from "../inputs/StringNullableListFilter";
 
 @TypeGraphQL.InputType("EmployeesWhereUniqueInput", {})
 export class EmployeesWhereUniqueInput {
@@ -34,30 +36,30 @@ export class EmployeesWhereUniqueInput {
         })
     employeename?: StringNullableFilter | undefined;
 
-    @TypeGraphQL.Field(_type => StringNullableFilter, {
+    @TypeGraphQL.Field(_type => EnumEmpstatusFilter, {
             nullable: true
         })
-    employeestatus?: StringNullableFilter | undefined;
+    employeestatus?: EnumEmpstatusFilter | undefined;
 
-    @TypeGraphQL.Field(_type => DateTimeNullableFilter, {
+    @TypeGraphQL.Field(_type => DateTimeFilter, {
             nullable: true
         })
-    joiningdate?: DateTimeNullableFilter | undefined;
+    joiningdate?: DateTimeFilter | undefined;
 
-    @TypeGraphQL.Field(_type => DateTimeNullableFilter, {
+    @TypeGraphQL.Field(_type => DateTimeFilter, {
             nullable: true
         })
-    birthdate?: DateTimeNullableFilter | undefined;
+    birthdate?: DateTimeFilter | undefined;
 
-    @TypeGraphQL.Field(_type => StringNullableFilter, {
+    @TypeGraphQL.Field(_type => StringNullableListFilter, {
             nullable: true
         })
-    skills?: StringNullableFilter | undefined;
+    skills?: StringNullableListFilter | undefined;
 
-    @TypeGraphQL.Field(_type => DecimalNullableFilter, {
+    @TypeGraphQL.Field(_type => FloatFilter, {
             nullable: true
         })
-    salarydetails?: DecimalNullableFilter | undefined;
+    salarydetails?: FloatFilter | undefined;
 
     @TypeGraphQL.Field(_type => StringNullableFilter, {
             nullable: true

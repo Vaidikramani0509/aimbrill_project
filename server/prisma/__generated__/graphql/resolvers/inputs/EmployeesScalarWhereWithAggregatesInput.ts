@@ -2,9 +2,11 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { DateTimeNullableWithAggregatesFilter } from "../inputs/DateTimeNullableWithAggregatesFilter";
-import { DecimalNullableWithAggregatesFilter } from "../inputs/DecimalNullableWithAggregatesFilter";
+import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
+import { EnumEmpstatusWithAggregatesFilter } from "../inputs/EnumEmpstatusWithAggregatesFilter";
+import { FloatWithAggregatesFilter } from "../inputs/FloatWithAggregatesFilter";
 import { IntWithAggregatesFilter } from "../inputs/IntWithAggregatesFilter";
+import { StringNullableListFilter } from "../inputs/StringNullableListFilter";
 import { StringNullableWithAggregatesFilter } from "../inputs/StringNullableWithAggregatesFilter";
 
 @TypeGraphQL.InputType("EmployeesScalarWhereWithAggregatesInput", {})
@@ -34,30 +36,30 @@ export class EmployeesScalarWhereWithAggregatesInput {
         })
     employeename?: StringNullableWithAggregatesFilter | undefined;
 
-    @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
+    @TypeGraphQL.Field(_type => EnumEmpstatusWithAggregatesFilter, {
             nullable: true
         })
-    employeestatus?: StringNullableWithAggregatesFilter | undefined;
+    employeestatus?: EnumEmpstatusWithAggregatesFilter | undefined;
 
-    @TypeGraphQL.Field(_type => DateTimeNullableWithAggregatesFilter, {
+    @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
             nullable: true
         })
-    joiningdate?: DateTimeNullableWithAggregatesFilter | undefined;
+    joiningdate?: DateTimeWithAggregatesFilter | undefined;
 
-    @TypeGraphQL.Field(_type => DateTimeNullableWithAggregatesFilter, {
+    @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
             nullable: true
         })
-    birthdate?: DateTimeNullableWithAggregatesFilter | undefined;
+    birthdate?: DateTimeWithAggregatesFilter | undefined;
 
-    @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
+    @TypeGraphQL.Field(_type => StringNullableListFilter, {
             nullable: true
         })
-    skills?: StringNullableWithAggregatesFilter | undefined;
+    skills?: StringNullableListFilter | undefined;
 
-    @TypeGraphQL.Field(_type => DecimalNullableWithAggregatesFilter, {
+    @TypeGraphQL.Field(_type => FloatWithAggregatesFilter, {
             nullable: true
         })
-    salarydetails?: DecimalNullableWithAggregatesFilter | undefined;
+    salarydetails?: FloatWithAggregatesFilter | undefined;
 
     @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
             nullable: true

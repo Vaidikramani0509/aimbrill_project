@@ -23,10 +23,14 @@ datasource db {
 model employees {
   employeeid     Int       @id @default(autoincrement())
   employeename   String?   @db.VarChar(100)
-  employeestatus String?   @db.VarChar(50)
-  joiningdate    DateTime? @db.Date
-  birthdate      DateTime? @db.Date
-  skills         String?
-  salarydetails  Decimal?  @db.Decimal(10, 2)
+  employeestatus Empstatus
+  joiningdate    DateTime 
+  birthdate      DateTime
+  skills         String[]
+  salarydetails  Float
   address        String?
+}
+enum Empstatus{
+  ACTIVE
+  INACTIVE
 }

@@ -1,0 +1,6 @@
+mutation updateOneEmployees ($data:EmployeesUpdateInput!  $where:EmployeesWhereUniqueInput!){
+  updateOneEmployees(data:$data, where:$where){
+    employeeid
+    employeename
+  }
+}

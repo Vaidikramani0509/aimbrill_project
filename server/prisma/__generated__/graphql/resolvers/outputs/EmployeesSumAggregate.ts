@@ -12,8 +12,8 @@ export class EmployeesSumAggregate {
         })
     employeeid!: number | null;
 
-    @TypeGraphQL.Field(_type => DecimalJSScalar, {
+    @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
             nullable: true
         })
-    salarydetails!: Prisma.Decimal | null;
+    salarydetails!: number | null;
 }

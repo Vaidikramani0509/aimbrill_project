@@ -7,6 +7,7 @@ import { EmployeesCountAggregate } from "../outputs/EmployeesCountAggregate";
 import { EmployeesMaxAggregate } from "../outputs/EmployeesMaxAggregate";
 import { EmployeesMinAggregate } from "../outputs/EmployeesMinAggregate";
 import { EmployeesSumAggregate } from "../outputs/EmployeesSumAggregate";
+import { Empstatus } from "../../enums/Empstatus";
 
 @TypeGraphQL.ObjectType("EmployeesGroupBy", {
         simpleResolvers: true
@@ -22,30 +23,30 @@ export class EmployeesGroupBy {
         })
     employeename!: string | null;
 
-    @TypeGraphQL.Field(_type => String, {
-            nullable: true
+    @TypeGraphQL.Field(_type => Empstatus, {
+            nullable: false
         })
-    employeestatus!: string | null;
+    employeestatus!: "ACTIVE" | "INACTIVE";
 
     @TypeGraphQL.Field(_type => Date, {
-            nullable: true
+            nullable: false
         })
-    joiningdate!: Date | null;
+    joiningdate!: Date;
 
     @TypeGraphQL.Field(_type => Date, {
-            nullable: true
+            nullable: false
         })
-    birthdate!: Date | null;
+    birthdate!: Date;
 
-    @TypeGraphQL.Field(_type => String, {
+    @TypeGraphQL.Field(_type => [String], {
             nullable: true
         })
-    skills!: string | null;
+    skills!: string[] | null;
 
-    @TypeGraphQL.Field(_type => DecimalJSScalar, {
-            nullable: true
+    @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+            nullable: false
         })
-    salarydetails!: Prisma.Decimal | null;
+    salarydetails!: number;
 
     @TypeGraphQL.Field(_type => String, {
             nullable: true

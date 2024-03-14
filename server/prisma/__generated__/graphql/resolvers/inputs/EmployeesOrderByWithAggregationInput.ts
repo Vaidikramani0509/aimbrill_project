@@ -22,30 +22,30 @@ export class EmployeesOrderByWithAggregationInput {
         })
     employeename?: SortOrderInput | undefined;
 
-    @TypeGraphQL.Field(_type => SortOrderInput, {
+    @TypeGraphQL.Field(_type => SortOrder, {
             nullable: true
         })
-    employeestatus?: SortOrderInput | undefined;
+    employeestatus?: "asc" | "desc" | undefined;
 
-    @TypeGraphQL.Field(_type => SortOrderInput, {
+    @TypeGraphQL.Field(_type => SortOrder, {
             nullable: true
         })
-    joiningdate?: SortOrderInput | undefined;
+    joiningdate?: "asc" | "desc" | undefined;
 
-    @TypeGraphQL.Field(_type => SortOrderInput, {
+    @TypeGraphQL.Field(_type => SortOrder, {
             nullable: true
         })
-    birthdate?: SortOrderInput | undefined;
+    birthdate?: "asc" | "desc" | undefined;
 
-    @TypeGraphQL.Field(_type => SortOrderInput, {
+    @TypeGraphQL.Field(_type => SortOrder, {
             nullable: true
         })
-    skills?: SortOrderInput | undefined;
+    skills?: "asc" | "desc" | undefined;
 
-    @TypeGraphQL.Field(_type => SortOrderInput, {
+    @TypeGraphQL.Field(_type => SortOrder, {
             nullable: true
         })
-    salarydetails?: SortOrderInput | undefined;
+    salarydetails?: "asc" | "desc" | undefined;
 
     @TypeGraphQL.Field(_type => SortOrderInput, {
             nullable: true

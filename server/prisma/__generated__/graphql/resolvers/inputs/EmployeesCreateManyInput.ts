@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
+import { Empstatus } from "../../enums/Empstatus";
 
 @TypeGraphQL.InputType("EmployeesCreateManyInput", {})
 export class EmployeesCreateManyInput {
@@ -15,30 +16,30 @@ export class EmployeesCreateManyInput {
         })
     employeename?: string | undefined;
 
-    @TypeGraphQL.Field(_type => String, {
-            nullable: true
+    @TypeGraphQL.Field(_type => Empstatus, {
+            nullable: false
         })
-    employeestatus?: string | undefined;
+    employeestatus!: "ACTIVE" | "INACTIVE";
 
     @TypeGraphQL.Field(_type => Date, {
-            nullable: true
+            nullable: false
         })
-    joiningdate?: Date | undefined;
+    joiningdate!: Date;
 
     @TypeGraphQL.Field(_type => Date, {
-            nullable: true
+            nullable: false
         })
-    birthdate?: Date | undefined;
+    birthdate!: Date;
 
-    @TypeGraphQL.Field(_type => String, {
+    @TypeGraphQL.Field(_type => [String], {
             nullable: true
         })
-    skills?: string | undefined;
+    skills?: string[] | undefined;
 
-    @TypeGraphQL.Field(_type => DecimalJSScalar, {
-            nullable: true
+    @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+            nullable: false
         })
-    salarydetails?: Prisma.Decimal | undefined;
+    salarydetails!: number;
 
     @TypeGraphQL.Field(_type => String, {
             nullable: true
