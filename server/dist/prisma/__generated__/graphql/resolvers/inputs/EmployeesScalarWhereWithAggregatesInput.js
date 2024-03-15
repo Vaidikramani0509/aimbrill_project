@@ -37,8 +37,8 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeWithAggregatesFilter_1 = require("../inputs/DateTimeWithAggregatesFilter");
 const EnumEmpstatusWithAggregatesFilter_1 = require("../inputs/EnumEmpstatusWithAggregatesFilter");
 const IntWithAggregatesFilter_1 = require("../inputs/IntWithAggregatesFilter");
-const StringNullableListFilter_1 = require("../inputs/StringNullableListFilter");
 const StringNullableWithAggregatesFilter_1 = require("../inputs/StringNullableWithAggregatesFilter");
+const StringWithAggregatesFilter_1 = require("../inputs/StringWithAggregatesFilter");
 let EmployeesScalarWhereWithAggregatesInput = class EmployeesScalarWhereWithAggregatesInput {
 };
 exports.EmployeesScalarWhereWithAggregatesInput = EmployeesScalarWhereWithAggregatesInput;
@@ -91,7 +91,7 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesScalarWhereWithAggregatesInput.prototype, "birthdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => StringNullableListFilter_1.StringNullableListFilter, {
+    TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)

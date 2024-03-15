@@ -38,10 +38,10 @@ export class EmployeesGroupBy {
         })
     birthdate!: Date;
 
-    @TypeGraphQL.Field(_type => [String], {
-            nullable: true
+    @TypeGraphQL.Field(_type => String, {
+            nullable: false
         })
-    skills!: string[] | null;
+    skills!: string;
 
     @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
             nullable: false

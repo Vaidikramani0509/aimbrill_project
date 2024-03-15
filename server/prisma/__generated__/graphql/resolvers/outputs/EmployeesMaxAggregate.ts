@@ -33,6 +33,11 @@ export class EmployeesMaxAggregate {
         })
     birthdate!: Date | null;
 
+    @TypeGraphQL.Field(_type => String, {
+            nullable: true
+        })
+    skills!: string | null;
+
     @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
             nullable: true
         })

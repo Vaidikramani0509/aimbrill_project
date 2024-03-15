@@ -32,7 +32,7 @@ class EmployeResponse extends BaseResponse {
 }
 
 @InputType()
-class UpdateUserInput {
+class updateEmployee {
   @Field(() => String, { nullable: true })
   name?: string;
 }
@@ -54,7 +54,7 @@ export class EmployeeResolver {
   @Mutation(() => EmployeResponse)
   async updateEmployee(
     @Arg("id") id: number,
-    @Arg("updates") updates: UpdateUserInput,
+    @Arg("updates") updates: updateEmployee,
     @Ctx() { em }: MyContext
   ): Promise<EmployeResponse> {
     if (!id) {
@@ -62,7 +62,7 @@ export class EmployeeResolver {
         errors: [{ field: "id", message: "Please provide a user id!" }],
       };
     }
-    const employee = await em.findOne(Employee, { populate: ["name"] });
+    const employee = await em.findOne({ employeee });
     if (!user) {
       return {
         errors: [

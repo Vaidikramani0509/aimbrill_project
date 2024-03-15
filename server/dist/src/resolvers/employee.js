@@ -48,15 +48,15 @@ __decorate([
 EmployeResponse = __decorate([
     (0, type_graphql_1.ObjectType)()
 ], EmployeResponse);
-let UpdateUserInput = class UpdateUserInput {
+let updateEmployee = class updateEmployee {
 };
 __decorate([
     (0, type_graphql_1.Field)(() => String, { nullable: true }),
     __metadata("design:type", String)
-], UpdateUserInput.prototype, "name", void 0);
-UpdateUserInput = __decorate([
+], updateEmployee.prototype, "name", void 0);
+updateEmployee = __decorate([
     (0, type_graphql_1.InputType)()
-], UpdateUserInput);
+], updateEmployee);
 let EmployeeResolver = class EmployeeResolver {
     async users({ em }) {
         return em.find(Employee_1.Employee, {}, {
@@ -70,7 +70,7 @@ let EmployeeResolver = class EmployeeResolver {
                 errors: [{ field: "id", message: "Please provide a user id!" }],
             };
         }
-        const employee = await em.findOne(Employee_1.Employee, { populate: ["name"] });
+        const employee = await em.findOne({ employeee });
         if (!user) {
             return {
                 errors: [
@@ -111,7 +111,7 @@ __decorate([
     __param(1, (0, type_graphql_1.Arg)("updates")),
     __param(2, (0, type_graphql_1.Ctx)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, UpdateUserInput, Object]),
+    __metadata("design:paramtypes", [Number, updateEmployee, Object]),
     __metadata("design:returntype", Promise)
 ], EmployeeResolver.prototype, "updateEmployee", null);
 __decorate([

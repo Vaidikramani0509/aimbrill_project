@@ -39,6 +39,12 @@ let EmployeesUpdateManyMutationInput = class EmployeesUpdateManyMutationInput {
 };
 exports.EmployeesUpdateManyMutationInput = EmployeesUpdateManyMutationInput;
 __decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesUpdateManyMutationInput.prototype, "employeeid", void 0);
+__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
@@ -63,7 +69,7 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesUpdateManyMutationInput.prototype, "birthdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => [String], {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
     __metadata("design:type", Object)

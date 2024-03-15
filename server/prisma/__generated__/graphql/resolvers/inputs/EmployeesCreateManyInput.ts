@@ -7,9 +7,9 @@ import { Empstatus } from "../../enums/Empstatus";
 @TypeGraphQL.InputType("EmployeesCreateManyInput", {})
 export class EmployeesCreateManyInput {
     @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-            nullable: true
+            nullable: false
         })
-    employeeid?: number | undefined;
+    employeeid!: number;
 
     @TypeGraphQL.Field(_type => String, {
             nullable: true
@@ -31,10 +31,10 @@ export class EmployeesCreateManyInput {
         })
     birthdate!: Date;
 
-    @TypeGraphQL.Field(_type => [String], {
-            nullable: true
+    @TypeGraphQL.Field(_type => String, {
+            nullable: false
         })
-    skills?: string[] | undefined;
+    skills!: string;
 
     @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
             nullable: false

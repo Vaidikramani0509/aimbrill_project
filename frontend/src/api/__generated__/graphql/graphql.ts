@@ -16,8 +16,6 @@ export type Scalars = {
   Float: { input: number; output: number; }
   /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
   DateTime: { input: any; output: any; }
-  /** GraphQL Scalar representing the Prisma.Decimal type, based on Decimal.js library. */
-  Decimal: { input: any; output: any; }
 };
 
 export type AffectedRowsOutput = {
@@ -34,74 +32,47 @@ export type AggregateEmployees = {
   _sum?: Maybe<EmployeesSumAggregate>;
 };
 
-export type DateTimeNullableFilter = {
+export type DateTimeFilter = {
   equals?: InputMaybe<Scalars['DateTime']['input']>;
   gt?: InputMaybe<Scalars['DateTime']['input']>;
   gte?: InputMaybe<Scalars['DateTime']['input']>;
   in?: InputMaybe<Array<Scalars['DateTime']['input']>>;
   lt?: InputMaybe<Scalars['DateTime']['input']>;
   lte?: InputMaybe<Scalars['DateTime']['input']>;
-  not?: InputMaybe<NestedDateTimeNullableFilter>;
+  not?: InputMaybe<NestedDateTimeFilter>;
   notIn?: InputMaybe<Array<Scalars['DateTime']['input']>>;
 };
 
-export type DateTimeNullableWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntNullableFilter>;
-  _max?: InputMaybe<NestedDateTimeNullableFilter>;
-  _min?: InputMaybe<NestedDateTimeNullableFilter>;
+export type DateTimeWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedDateTimeFilter>;
+  _min?: InputMaybe<NestedDateTimeFilter>;
   equals?: InputMaybe<Scalars['DateTime']['input']>;
   gt?: InputMaybe<Scalars['DateTime']['input']>;
   gte?: InputMaybe<Scalars['DateTime']['input']>;
   in?: InputMaybe<Array<Scalars['DateTime']['input']>>;
   lt?: InputMaybe<Scalars['DateTime']['input']>;
   lte?: InputMaybe<Scalars['DateTime']['input']>;
-  not?: InputMaybe<NestedDateTimeNullableWithAggregatesFilter>;
+  not?: InputMaybe<NestedDateTimeWithAggregatesFilter>;
   notIn?: InputMaybe<Array<Scalars['DateTime']['input']>>;
-};
-
-export type DecimalNullableFilter = {
-  equals?: InputMaybe<Scalars['Decimal']['input']>;
-  gt?: InputMaybe<Scalars['Decimal']['input']>;
-  gte?: InputMaybe<Scalars['Decimal']['input']>;
-  in?: InputMaybe<Array<Scalars['Decimal']['input']>>;
-  lt?: InputMaybe<Scalars['Decimal']['input']>;
-  lte?: InputMaybe<Scalars['Decimal']['input']>;
-  not?: InputMaybe<NestedDecimalNullableFilter>;
-  notIn?: InputMaybe<Array<Scalars['Decimal']['input']>>;
-};
-
-export type DecimalNullableWithAggregatesFilter = {
-  _avg?: InputMaybe<NestedDecimalNullableFilter>;
-  _count?: InputMaybe<NestedIntNullableFilter>;
-  _max?: InputMaybe<NestedDecimalNullableFilter>;
-  _min?: InputMaybe<NestedDecimalNullableFilter>;
-  _sum?: InputMaybe<NestedDecimalNullableFilter>;
-  equals?: InputMaybe<Scalars['Decimal']['input']>;
-  gt?: InputMaybe<Scalars['Decimal']['input']>;
-  gte?: InputMaybe<Scalars['Decimal']['input']>;
-  in?: InputMaybe<Array<Scalars['Decimal']['input']>>;
-  lt?: InputMaybe<Scalars['Decimal']['input']>;
-  lte?: InputMaybe<Scalars['Decimal']['input']>;
-  not?: InputMaybe<NestedDecimalNullableWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<Scalars['Decimal']['input']>>;
 };
 
 export type Employees = {
   __typename?: 'Employees';
   address?: Maybe<Scalars['String']['output']>;
-  birthdate?: Maybe<Scalars['DateTime']['output']>;
+  birthdate: Scalars['DateTime']['output'];
   employeeid: Scalars['Int']['output'];
   employeename?: Maybe<Scalars['String']['output']>;
-  employeestatus?: Maybe<Scalars['String']['output']>;
-  joiningdate?: Maybe<Scalars['DateTime']['output']>;
-  salarydetails?: Maybe<Scalars['Decimal']['output']>;
-  skills?: Maybe<Scalars['String']['output']>;
+  employeestatus: Empstatus;
+  joiningdate: Scalars['DateTime']['output'];
+  salarydetails: Scalars['Int']['output'];
+  skills: Scalars['String']['output'];
 };
 
 export type EmployeesAvgAggregate = {
   __typename?: 'EmployeesAvgAggregate';
   employeeid?: Maybe<Scalars['Float']['output']>;
-  salarydetails?: Maybe<Scalars['Decimal']['output']>;
+  salarydetails?: Maybe<Scalars['Float']['output']>;
 };
 
 export type EmployeesAvgOrderByAggregateInput = {
@@ -135,23 +106,24 @@ export type EmployeesCountOrderByAggregateInput = {
 
 export type EmployeesCreateInput = {
   address?: InputMaybe<Scalars['String']['input']>;
-  birthdate?: InputMaybe<Scalars['DateTime']['input']>;
+  birthdate: Scalars['DateTime']['input'];
+  employeeid: Scalars['Int']['input'];
   employeename?: InputMaybe<Scalars['String']['input']>;
-  employeestatus?: InputMaybe<Scalars['String']['input']>;
-  joiningdate?: InputMaybe<Scalars['DateTime']['input']>;
-  salarydetails?: InputMaybe<Scalars['Decimal']['input']>;
-  skills?: InputMaybe<Scalars['String']['input']>;
+  employeestatus: Empstatus;
+  joiningdate: Scalars['DateTime']['input'];
+  salarydetails: Scalars['Int']['input'];
+  skills: Scalars['String']['input'];
 };
 
 export type EmployeesCreateManyInput = {
   address?: InputMaybe<Scalars['String']['input']>;
-  birthdate?: InputMaybe<Scalars['DateTime']['input']>;
-  employeeid?: InputMaybe<Scalars['Int']['input']>;
+  birthdate: Scalars['DateTime']['input'];
+  employeeid: Scalars['Int']['input'];
   employeename?: InputMaybe<Scalars['String']['input']>;
-  employeestatus?: InputMaybe<Scalars['String']['input']>;
-  joiningdate?: InputMaybe<Scalars['DateTime']['input']>;
-  salarydetails?: InputMaybe<Scalars['Decimal']['input']>;
-  skills?: InputMaybe<Scalars['String']['input']>;
+  employeestatus: Empstatus;
+  joiningdate: Scalars['DateTime']['input'];
+  salarydetails: Scalars['Int']['input'];
+  skills: Scalars['String']['input'];
 };
 
 export type EmployeesGroupBy = {
@@ -162,13 +134,13 @@ export type EmployeesGroupBy = {
   _min?: Maybe<EmployeesMinAggregate>;
   _sum?: Maybe<EmployeesSumAggregate>;
   address?: Maybe<Scalars['String']['output']>;
-  birthdate?: Maybe<Scalars['DateTime']['output']>;
+  birthdate: Scalars['DateTime']['output'];
   employeeid: Scalars['Int']['output'];
   employeename?: Maybe<Scalars['String']['output']>;
-  employeestatus?: Maybe<Scalars['String']['output']>;
-  joiningdate?: Maybe<Scalars['DateTime']['output']>;
-  salarydetails?: Maybe<Scalars['Decimal']['output']>;
-  skills?: Maybe<Scalars['String']['output']>;
+  employeestatus: Empstatus;
+  joiningdate: Scalars['DateTime']['output'];
+  salarydetails: Scalars['Int']['output'];
+  skills: Scalars['String']['output'];
 };
 
 export type EmployeesMaxAggregate = {
@@ -177,9 +149,9 @@ export type EmployeesMaxAggregate = {
   birthdate?: Maybe<Scalars['DateTime']['output']>;
   employeeid?: Maybe<Scalars['Int']['output']>;
   employeename?: Maybe<Scalars['String']['output']>;
-  employeestatus?: Maybe<Scalars['String']['output']>;
+  employeestatus?: Maybe<Empstatus>;
   joiningdate?: Maybe<Scalars['DateTime']['output']>;
-  salarydetails?: Maybe<Scalars['Decimal']['output']>;
+  salarydetails?: Maybe<Scalars['Int']['output']>;
   skills?: Maybe<Scalars['String']['output']>;
 };
 
@@ -200,9 +172,9 @@ export type EmployeesMinAggregate = {
   birthdate?: Maybe<Scalars['DateTime']['output']>;
   employeeid?: Maybe<Scalars['Int']['output']>;
   employeename?: Maybe<Scalars['String']['output']>;
-  employeestatus?: Maybe<Scalars['String']['output']>;
+  employeestatus?: Maybe<Empstatus>;
   joiningdate?: Maybe<Scalars['DateTime']['output']>;
-  salarydetails?: Maybe<Scalars['Decimal']['output']>;
+  salarydetails?: Maybe<Scalars['Int']['output']>;
   skills?: Maybe<Scalars['String']['output']>;
 };
 
@@ -224,24 +196,24 @@ export type EmployeesOrderByWithAggregationInput = {
   _min?: InputMaybe<EmployeesMinOrderByAggregateInput>;
   _sum?: InputMaybe<EmployeesSumOrderByAggregateInput>;
   address?: InputMaybe<SortOrderInput>;
-  birthdate?: InputMaybe<SortOrderInput>;
+  birthdate?: InputMaybe<SortOrder>;
   employeeid?: InputMaybe<SortOrder>;
   employeename?: InputMaybe<SortOrderInput>;
-  employeestatus?: InputMaybe<SortOrderInput>;
-  joiningdate?: InputMaybe<SortOrderInput>;
-  salarydetails?: InputMaybe<SortOrderInput>;
-  skills?: InputMaybe<SortOrderInput>;
+  employeestatus?: InputMaybe<SortOrder>;
+  joiningdate?: InputMaybe<SortOrder>;
+  salarydetails?: InputMaybe<SortOrder>;
+  skills?: InputMaybe<SortOrder>;
 };
 
 export type EmployeesOrderByWithRelationInput = {
   address?: InputMaybe<SortOrderInput>;
-  birthdate?: InputMaybe<SortOrderInput>;
+  birthdate?: InputMaybe<SortOrder>;
   employeeid?: InputMaybe<SortOrder>;
   employeename?: InputMaybe<SortOrderInput>;
-  employeestatus?: InputMaybe<SortOrderInput>;
-  joiningdate?: InputMaybe<SortOrderInput>;
-  salarydetails?: InputMaybe<SortOrderInput>;
-  skills?: InputMaybe<SortOrderInput>;
+  employeestatus?: InputMaybe<SortOrder>;
+  joiningdate?: InputMaybe<SortOrder>;
+  salarydetails?: InputMaybe<SortOrder>;
+  skills?: InputMaybe<SortOrder>;
 };
 
 export enum EmployeesScalarFieldEnum {
@@ -260,19 +232,19 @@ export type EmployeesScalarWhereWithAggregatesInput = {
   NOT?: InputMaybe<Array<EmployeesScalarWhereWithAggregatesInput>>;
   OR?: InputMaybe<Array<EmployeesScalarWhereWithAggregatesInput>>;
   address?: InputMaybe<StringNullableWithAggregatesFilter>;
-  birthdate?: InputMaybe<DateTimeNullableWithAggregatesFilter>;
+  birthdate?: InputMaybe<DateTimeWithAggregatesFilter>;
   employeeid?: InputMaybe<IntWithAggregatesFilter>;
   employeename?: InputMaybe<StringNullableWithAggregatesFilter>;
-  employeestatus?: InputMaybe<StringNullableWithAggregatesFilter>;
-  joiningdate?: InputMaybe<DateTimeNullableWithAggregatesFilter>;
-  salarydetails?: InputMaybe<DecimalNullableWithAggregatesFilter>;
-  skills?: InputMaybe<StringNullableWithAggregatesFilter>;
+  employeestatus?: InputMaybe<EnumEmpstatusWithAggregatesFilter>;
+  joiningdate?: InputMaybe<DateTimeWithAggregatesFilter>;
+  salarydetails?: InputMaybe<IntWithAggregatesFilter>;
+  skills?: InputMaybe<StringWithAggregatesFilter>;
 };
 
 export type EmployeesSumAggregate = {
   __typename?: 'EmployeesSumAggregate';
   employeeid?: Maybe<Scalars['Int']['output']>;
-  salarydetails?: Maybe<Scalars['Decimal']['output']>;
+  salarydetails?: Maybe<Scalars['Int']['output']>;
 };
 
 export type EmployeesSumOrderByAggregateInput = {
@@ -283,20 +255,22 @@ export type EmployeesSumOrderByAggregateInput = {
 export type EmployeesUpdateInput = {
   address?: InputMaybe<Scalars['String']['input']>;
   birthdate?: InputMaybe<Scalars['DateTime']['input']>;
+  employeeid?: InputMaybe<Scalars['Int']['input']>;
   employeename?: InputMaybe<Scalars['String']['input']>;
-  employeestatus?: InputMaybe<Scalars['String']['input']>;
+  employeestatus?: InputMaybe<Empstatus>;
   joiningdate?: InputMaybe<Scalars['DateTime']['input']>;
-  salarydetails?: InputMaybe<Scalars['Decimal']['input']>;
+  salarydetails?: InputMaybe<Scalars['Int']['input']>;
   skills?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type EmployeesUpdateManyMutationInput = {
   address?: InputMaybe<Scalars['String']['input']>;
   birthdate?: InputMaybe<Scalars['DateTime']['input']>;
+  employeeid?: InputMaybe<Scalars['Int']['input']>;
   employeename?: InputMaybe<Scalars['String']['input']>;
-  employeestatus?: InputMaybe<Scalars['String']['input']>;
+  employeestatus?: InputMaybe<Empstatus>;
   joiningdate?: InputMaybe<Scalars['DateTime']['input']>;
-  salarydetails?: InputMaybe<Scalars['Decimal']['input']>;
+  salarydetails?: InputMaybe<Scalars['Int']['input']>;
   skills?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -305,13 +279,13 @@ export type EmployeesWhereInput = {
   NOT?: InputMaybe<Array<EmployeesWhereInput>>;
   OR?: InputMaybe<Array<EmployeesWhereInput>>;
   address?: InputMaybe<StringNullableFilter>;
-  birthdate?: InputMaybe<DateTimeNullableFilter>;
+  birthdate?: InputMaybe<DateTimeFilter>;
   employeeid?: InputMaybe<IntFilter>;
   employeename?: InputMaybe<StringNullableFilter>;
-  employeestatus?: InputMaybe<StringNullableFilter>;
-  joiningdate?: InputMaybe<DateTimeNullableFilter>;
-  salarydetails?: InputMaybe<DecimalNullableFilter>;
-  skills?: InputMaybe<StringNullableFilter>;
+  employeestatus?: InputMaybe<EnumEmpstatusFilter>;
+  joiningdate?: InputMaybe<DateTimeFilter>;
+  salarydetails?: InputMaybe<IntFilter>;
+  skills?: InputMaybe<StringFilter>;
 };
 
 export type EmployeesWhereUniqueInput = {
@@ -319,13 +293,35 @@ export type EmployeesWhereUniqueInput = {
   NOT?: InputMaybe<Array<EmployeesWhereInput>>;
   OR?: InputMaybe<Array<EmployeesWhereInput>>;
   address?: InputMaybe<StringNullableFilter>;
-  birthdate?: InputMaybe<DateTimeNullableFilter>;
+  birthdate?: InputMaybe<DateTimeFilter>;
   employeeid?: InputMaybe<Scalars['Int']['input']>;
   employeename?: InputMaybe<StringNullableFilter>;
-  employeestatus?: InputMaybe<StringNullableFilter>;
-  joiningdate?: InputMaybe<DateTimeNullableFilter>;
-  salarydetails?: InputMaybe<DecimalNullableFilter>;
-  skills?: InputMaybe<StringNullableFilter>;
+  employeestatus?: InputMaybe<EnumEmpstatusFilter>;
+  joiningdate?: InputMaybe<DateTimeFilter>;
+  salarydetails?: InputMaybe<IntFilter>;
+  skills?: InputMaybe<StringFilter>;
+};
+
+export enum Empstatus {
+  Active = 'ACTIVE',
+  Inactive = 'INACTIVE'
+}
+
+export type EnumEmpstatusFilter = {
+  equals?: InputMaybe<Empstatus>;
+  in?: InputMaybe<Array<Empstatus>>;
+  not?: InputMaybe<NestedEnumEmpstatusFilter>;
+  notIn?: InputMaybe<Array<Empstatus>>;
+};
+
+export type EnumEmpstatusWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedEnumEmpstatusFilter>;
+  _min?: InputMaybe<NestedEnumEmpstatusFilter>;
+  equals?: InputMaybe<Empstatus>;
+  in?: InputMaybe<Array<Empstatus>>;
+  not?: InputMaybe<NestedEnumEmpstatusWithAggregatesFilter>;
+  notIn?: InputMaybe<Array<Empstatus>>;
 };
 
 export type IntFilter = {
@@ -374,7 +370,7 @@ export type MutationCreateManyEmployeesArgs = {
 
 
 export type MutationCreateOneEmployeesArgs = {
-  data?: InputMaybe<EmployeesCreateInput>;
+  data: EmployeesCreateInput;
 };
 
 
@@ -406,56 +402,46 @@ export type MutationUpsertOneEmployeesArgs = {
   where: EmployeesWhereUniqueInput;
 };
 
-export type NestedDateTimeNullableFilter = {
+export type NestedDateTimeFilter = {
   equals?: InputMaybe<Scalars['DateTime']['input']>;
   gt?: InputMaybe<Scalars['DateTime']['input']>;
   gte?: InputMaybe<Scalars['DateTime']['input']>;
   in?: InputMaybe<Array<Scalars['DateTime']['input']>>;
   lt?: InputMaybe<Scalars['DateTime']['input']>;
   lte?: InputMaybe<Scalars['DateTime']['input']>;
-  not?: InputMaybe<NestedDateTimeNullableFilter>;
+  not?: InputMaybe<NestedDateTimeFilter>;
   notIn?: InputMaybe<Array<Scalars['DateTime']['input']>>;
 };
 
-export type NestedDateTimeNullableWithAggregatesFilter = {
-  _count?: InputMaybe<NestedIntNullableFilter>;
-  _max?: InputMaybe<NestedDateTimeNullableFilter>;
-  _min?: InputMaybe<NestedDateTimeNullableFilter>;
+export type NestedDateTimeWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedDateTimeFilter>;
+  _min?: InputMaybe<NestedDateTimeFilter>;
   equals?: InputMaybe<Scalars['DateTime']['input']>;
   gt?: InputMaybe<Scalars['DateTime']['input']>;
   gte?: InputMaybe<Scalars['DateTime']['input']>;
   in?: InputMaybe<Array<Scalars['DateTime']['input']>>;
   lt?: InputMaybe<Scalars['DateTime']['input']>;
   lte?: InputMaybe<Scalars['DateTime']['input']>;
-  not?: InputMaybe<NestedDateTimeNullableWithAggregatesFilter>;
+  not?: InputMaybe<NestedDateTimeWithAggregatesFilter>;
   notIn?: InputMaybe<Array<Scalars['DateTime']['input']>>;
 };
 
-export type NestedDecimalNullableFilter = {
-  equals?: InputMaybe<Scalars['Decimal']['input']>;
-  gt?: InputMaybe<Scalars['Decimal']['input']>;
-  gte?: InputMaybe<Scalars['Decimal']['input']>;
-  in?: InputMaybe<Array<Scalars['Decimal']['input']>>;
-  lt?: InputMaybe<Scalars['Decimal']['input']>;
-  lte?: InputMaybe<Scalars['Decimal']['input']>;
-  not?: InputMaybe<NestedDecimalNullableFilter>;
-  notIn?: InputMaybe<Array<Scalars['Decimal']['input']>>;
+export type NestedEnumEmpstatusFilter = {
+  equals?: InputMaybe<Empstatus>;
+  in?: InputMaybe<Array<Empstatus>>;
+  not?: InputMaybe<NestedEnumEmpstatusFilter>;
+  notIn?: InputMaybe<Array<Empstatus>>;
 };
 
-export type NestedDecimalNullableWithAggregatesFilter = {
-  _avg?: InputMaybe<NestedDecimalNullableFilter>;
-  _count?: InputMaybe<NestedIntNullableFilter>;
-  _max?: InputMaybe<NestedDecimalNullableFilter>;
-  _min?: InputMaybe<NestedDecimalNullableFilter>;
-  _sum?: InputMaybe<NestedDecimalNullableFilter>;
-  equals?: InputMaybe<Scalars['Decimal']['input']>;
-  gt?: InputMaybe<Scalars['Decimal']['input']>;
-  gte?: InputMaybe<Scalars['Decimal']['input']>;
-  in?: InputMaybe<Array<Scalars['Decimal']['input']>>;
-  lt?: InputMaybe<Scalars['Decimal']['input']>;
-  lte?: InputMaybe<Scalars['Decimal']['input']>;
-  not?: InputMaybe<NestedDecimalNullableWithAggregatesFilter>;
-  notIn?: InputMaybe<Array<Scalars['Decimal']['input']>>;
+export type NestedEnumEmpstatusWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedEnumEmpstatusFilter>;
+  _min?: InputMaybe<NestedEnumEmpstatusFilter>;
+  equals?: InputMaybe<Empstatus>;
+  in?: InputMaybe<Array<Empstatus>>;
+  not?: InputMaybe<NestedEnumEmpstatusWithAggregatesFilter>;
+  notIn?: InputMaybe<Array<Empstatus>>;
 };
 
 export type NestedFloatFilter = {
@@ -507,6 +493,20 @@ export type NestedIntWithAggregatesFilter = {
   notIn?: InputMaybe<Array<Scalars['Int']['input']>>;
 };
 
+export type NestedStringFilter = {
+  contains?: InputMaybe<Scalars['String']['input']>;
+  endsWith?: InputMaybe<Scalars['String']['input']>;
+  equals?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  in?: InputMaybe<Array<Scalars['String']['input']>>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  not?: InputMaybe<NestedStringFilter>;
+  notIn?: InputMaybe<Array<Scalars['String']['input']>>;
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type NestedStringNullableFilter = {
   contains?: InputMaybe<Scalars['String']['input']>;
   endsWith?: InputMaybe<Scalars['String']['input']>;
@@ -534,6 +534,23 @@ export type NestedStringNullableWithAggregatesFilter = {
   lt?: InputMaybe<Scalars['String']['input']>;
   lte?: InputMaybe<Scalars['String']['input']>;
   not?: InputMaybe<NestedStringNullableWithAggregatesFilter>;
+  notIn?: InputMaybe<Array<Scalars['String']['input']>>;
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type NestedStringWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedStringFilter>;
+  _min?: InputMaybe<NestedStringFilter>;
+  contains?: InputMaybe<Scalars['String']['input']>;
+  endsWith?: InputMaybe<Scalars['String']['input']>;
+  equals?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  in?: InputMaybe<Array<Scalars['String']['input']>>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  not?: InputMaybe<NestedStringWithAggregatesFilter>;
   notIn?: InputMaybe<Array<Scalars['String']['input']>>;
   startsWith?: InputMaybe<Scalars['String']['input']>;
 };
@@ -628,6 +645,21 @@ export type SortOrderInput = {
   sort: SortOrder;
 };
 
+export type StringFilter = {
+  contains?: InputMaybe<Scalars['String']['input']>;
+  endsWith?: InputMaybe<Scalars['String']['input']>;
+  equals?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  in?: InputMaybe<Array<Scalars['String']['input']>>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  mode?: InputMaybe<QueryMode>;
+  not?: InputMaybe<NestedStringFilter>;
+  notIn?: InputMaybe<Array<Scalars['String']['input']>>;
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type StringNullableFilter = {
   contains?: InputMaybe<Scalars['String']['input']>;
   endsWith?: InputMaybe<Scalars['String']['input']>;
@@ -661,6 +693,31 @@ export type StringNullableWithAggregatesFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type StringWithAggregatesFilter = {
+  _count?: InputMaybe<NestedIntFilter>;
+  _max?: InputMaybe<NestedStringFilter>;
+  _min?: InputMaybe<NestedStringFilter>;
+  contains?: InputMaybe<Scalars['String']['input']>;
+  endsWith?: InputMaybe<Scalars['String']['input']>;
+  equals?: InputMaybe<Scalars['String']['input']>;
+  gt?: InputMaybe<Scalars['String']['input']>;
+  gte?: InputMaybe<Scalars['String']['input']>;
+  in?: InputMaybe<Array<Scalars['String']['input']>>;
+  lt?: InputMaybe<Scalars['String']['input']>;
+  lte?: InputMaybe<Scalars['String']['input']>;
+  mode?: InputMaybe<QueryMode>;
+  not?: InputMaybe<NestedStringWithAggregatesFilter>;
+  notIn?: InputMaybe<Array<Scalars['String']['input']>>;
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreatemanyemplyeMutationVariables = Exact<{
+  data: Array<EmployeesCreateManyInput> | EmployeesCreateManyInput;
+}>;
+
+
+export type CreatemanyemplyeMutation = { __typename?: 'Mutation', createManyEmployees: { __typename: 'AffectedRowsOutput', count: number } };
+
 export type UpdateOneEmployeesMutationVariables = Exact<{
   data: EmployeesUpdateInput;
   where: EmployeesWhereUniqueInput;
@@ -670,4 +727,5 @@ export type UpdateOneEmployeesMutationVariables = Exact<{
 export type UpdateOneEmployeesMutation = { __typename?: 'Mutation', updateOneEmployees?: { __typename?: 'Employees', employeeid: number, employeename?: string | null } | null };
 
 
-export const UpdateOneEmployeesDocument = { "kind": "Document", "definitions": [{ "kind": "OperationDefinition", "operation": "mutation", "name": { "kind": "Name", "value": "updateOneEmployees" }, "variableDefinitions": [{ "kind": "VariableDefinition", "variable": { "kind": "Variable", "name": { "kind": "Name", "value": "data" } }, "type": { "kind": "NonNullType", "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "EmployeesUpdateInput" } } } }, { "kind": "VariableDefinition", "variable": { "kind": "Variable", "name": { "kind": "Name", "value": "where" } }, "type": { "kind": "NonNullType", "type": { "kind": "NamedType", "name": { "kind": "Name", "value": "EmployeesWhereUniqueInput" } } } }], "selectionSet": { "kind": "SelectionSet", "selections": [{ "kind": "Field", "name": { "kind": "Name", "value": "updateOneEmployees" }, "arguments": [{ "kind": "Argument", "name": { "kind": "Name", "value": "data" }, "value": { "kind": "Variable", "name": { "kind": "Name", "value": "data" } } }, { "kind": "Argument", "name": { "kind": "Name", "value": "where" }, "value": { "kind": "Variable", "name": { "kind": "Name", "value": "where" } } }], "selectionSet": { "kind": "SelectionSet", "selections": [{ "kind": "Field", "name": { "kind": "Name", "value": "employeeid" } }, { "kind": "Field", "name": { "kind": "Name", "value": "employeename" } }] } }] } }] } as unknown as DocumentNode<UpdateOneEmployeesMutation, UpdateOneEmployeesMutationVariables>; 
+export const CreatemanyemplyeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"createmanyemplye"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"EmployeesCreateManyInput"}}}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"createManyEmployees"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"count"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}}]} as unknown as DocumentNode<CreatemanyemplyeMutation, CreatemanyemplyeMutationVariables>;
+export const UpdateOneEmployeesDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"updateOneEmployees"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"EmployeesUpdateInput"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"where"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"EmployeesWhereUniqueInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateOneEmployees"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"data"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"Variable","name":{"kind":"Name","value":"where"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"employeeid"}},{"kind":"Field","name":{"kind":"Name","value":"employeename"}}]}}]}}]} as unknown as DocumentNode<UpdateOneEmployeesMutation, UpdateOneEmployeesMutationVariables>;

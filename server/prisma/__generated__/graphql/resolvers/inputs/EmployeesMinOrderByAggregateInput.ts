@@ -34,6 +34,11 @@ export class EmployeesMinOrderByAggregateInput {
     @TypeGraphQL.Field(_type => SortOrder, {
             nullable: true
         })
+    skills?: "asc" | "desc" | undefined;
+
+    @TypeGraphQL.Field(_type => SortOrder, {
+            nullable: true
+        })
     salarydetails?: "asc" | "desc" | undefined;
 
     @TypeGraphQL.Field(_type => SortOrder, {

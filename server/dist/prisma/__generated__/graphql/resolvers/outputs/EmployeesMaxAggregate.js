@@ -69,6 +69,12 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesMaxAggregate.prototype, "birthdate", void 0);
 __decorate([
+    TypeGraphQL.Field(_type => String, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesMaxAggregate.prototype, "skills", void 0);
+__decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: true
     }),

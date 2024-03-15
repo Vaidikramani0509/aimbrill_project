@@ -37,8 +37,8 @@ const TypeGraphQL = __importStar(require("type-graphql"));
 const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
 const EnumEmpstatusFilter_1 = require("../inputs/EnumEmpstatusFilter");
 const IntFilter_1 = require("../inputs/IntFilter");
+const StringFilter_1 = require("../inputs/StringFilter");
 const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
-const StringNullableListFilter_1 = require("../inputs/StringNullableListFilter");
 let EmployeesWhereInput = class EmployeesWhereInput {
 };
 exports.EmployeesWhereInput = EmployeesWhereInput;
@@ -91,7 +91,7 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesWhereInput.prototype, "birthdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => StringNullableListFilter_1.StringNullableListFilter, {
+    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true
     }),
     __metadata("design:type", Object)

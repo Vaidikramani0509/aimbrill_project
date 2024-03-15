@@ -21,12 +21,12 @@ datasource db {
 }
 
 model employees {
-  employeeid     Int       @id @default(autoincrement())
+  employeeid     Int       @id @unique  
   employeename   String?   @db.VarChar(100)
   employeestatus Empstatus
   joiningdate    DateTime 
   birthdate      DateTime
-  skills         String[]
+  skills         String
   salarydetails  Int
   address        String?
 }

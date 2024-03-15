@@ -39,6 +39,12 @@ let EmployeesUpdateInput = class EmployeesUpdateInput {
 };
 exports.EmployeesUpdateInput = EmployeesUpdateInput;
 __decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesUpdateInput.prototype, "employeeid", void 0);
+__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
@@ -63,7 +69,7 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesUpdateInput.prototype, "birthdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => [String], {
+    TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
     __metadata("design:type", Object)

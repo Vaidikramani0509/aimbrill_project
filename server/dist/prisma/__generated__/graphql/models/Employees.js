@@ -69,10 +69,10 @@ __decorate([
     __metadata("design:type", Date)
 ], Employees.prototype, "birthdate", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => [String], {
+    TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
-    __metadata("design:type", Array)
+    __metadata("design:type", String)
 ], Employees.prototype, "skills", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {

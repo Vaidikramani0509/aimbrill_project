@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Button, Modal, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import { useDropzone } from 'react-dropzone';
 import * as XLSX from 'xlsx';
+import { useMutation } from '@apollo/client';
+import * as mutations from '../models/Mutations'
 
 function HomeScreen() {
     const [excelData, setExcelData] = useState([]);
@@ -22,17 +24,26 @@ function HomeScreen() {
             setExcelData(excelData);
             setDataImported(true);
         };
-
+        console.log(excelData, 'exceldata');
         reader.readAsArrayBuffer(file);
     };
 
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
-
+    const [] = useMutation(mutations.UPDATE_EMPLOYEE)
     const handleImport = () => {
         setShowData(true);
         setOpenModal(false); // Close modal after importing data
     };
-
+    const [createYoutubePublication] = useMutation(mutations.UPDATE_EMPLOYEE)
+    // const handleImport = async () => {
+    //     try {
+    //         await UpdateManyEmployee({ variables: { data: excelData } });
+    //         setShowData(true);
+    //         setOpenModal(false); // Close modal after importing data
+    //     } catch (error) {
+    //         console.error('Error importing data:', error);
+    //     }
+    // };
     const handleCloseModal = () => {
         setOpenModal(false);
     };
@@ -65,6 +76,8 @@ function HomeScreen() {
                     <Button variant="contained" color="primary" onClick={handleImport}>
                         Import Data
                     </Button>
+                    <h1>CSV File Upload</h1>
+                    {/* <FileUpload /> */}
                 </div>
             </Modal>
             <TableContainer component={Paper} >

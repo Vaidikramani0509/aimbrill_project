@@ -5,8 +5,8 @@ import { DecimalJSScalar } from "../../scalars";
 import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
 import { EnumEmpstatusWithAggregatesFilter } from "../inputs/EnumEmpstatusWithAggregatesFilter";
 import { IntWithAggregatesFilter } from "../inputs/IntWithAggregatesFilter";
-import { StringNullableListFilter } from "../inputs/StringNullableListFilter";
 import { StringNullableWithAggregatesFilter } from "../inputs/StringNullableWithAggregatesFilter";
+import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
 
 @TypeGraphQL.InputType("EmployeesScalarWhereWithAggregatesInput", {})
 export class EmployeesScalarWhereWithAggregatesInput {
@@ -50,10 +50,10 @@ export class EmployeesScalarWhereWithAggregatesInput {
         })
     birthdate?: DateTimeWithAggregatesFilter | undefined;
 
-    @TypeGraphQL.Field(_type => StringNullableListFilter, {
+    @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
             nullable: true
         })
-    skills?: StringNullableListFilter | undefined;
+    skills?: StringWithAggregatesFilter | undefined;
 
     @TypeGraphQL.Field(_type => IntWithAggregatesFilter, {
             nullable: true

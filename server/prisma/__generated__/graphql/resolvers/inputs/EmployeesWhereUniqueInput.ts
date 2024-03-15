@@ -6,8 +6,8 @@ import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EmployeesWhereInput } from "../inputs/EmployeesWhereInput";
 import { EnumEmpstatusFilter } from "../inputs/EnumEmpstatusFilter";
 import { IntFilter } from "../inputs/IntFilter";
+import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
-import { StringNullableListFilter } from "../inputs/StringNullableListFilter";
 
 @TypeGraphQL.InputType("EmployeesWhereUniqueInput", {})
 export class EmployeesWhereUniqueInput {
@@ -51,10 +51,10 @@ export class EmployeesWhereUniqueInput {
         })
     birthdate?: DateTimeFilter | undefined;
 
-    @TypeGraphQL.Field(_type => StringNullableListFilter, {
+    @TypeGraphQL.Field(_type => StringFilter, {
             nullable: true
         })
-    skills?: StringNullableListFilter | undefined;
+    skills?: StringFilter | undefined;
 
     @TypeGraphQL.Field(_type => IntFilter, {
             nullable: true
