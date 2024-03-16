@@ -20,7 +20,7 @@ export class GroupByEmployeesArgs {
     @TypeGraphQL.Field(_type => [EmployeesScalarFieldEnum], {
             nullable: false
         })
-    by!: Array<"employeeid" | "employeename" | "employeestatus" | "joiningdate" | "birthdate" | "skills" | "salarydetails" | "address">;
+    by!: Array<"employeeid" | "employeename" | "employeestatus" | "skills" | "salarydetails" | "address" | "role">;
 
     @TypeGraphQL.Field(_type => EmployeesScalarWhereWithAggregatesInput, {
             nullable: true

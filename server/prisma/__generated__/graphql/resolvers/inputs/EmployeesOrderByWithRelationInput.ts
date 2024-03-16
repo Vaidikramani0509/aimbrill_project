@@ -25,16 +25,6 @@ export class EmployeesOrderByWithRelationInput {
     @TypeGraphQL.Field(_type => SortOrder, {
             nullable: true
         })
-    joiningdate?: "asc" | "desc" | undefined;
-
-    @TypeGraphQL.Field(_type => SortOrder, {
-            nullable: true
-        })
-    birthdate?: "asc" | "desc" | undefined;
-
-    @TypeGraphQL.Field(_type => SortOrder, {
-            nullable: true
-        })
     skills?: "asc" | "desc" | undefined;
 
     @TypeGraphQL.Field(_type => SortOrder, {
@@ -46,4 +36,9 @@ export class EmployeesOrderByWithRelationInput {
             nullable: true
         })
     address?: SortOrderInput | undefined;
+
+    @TypeGraphQL.Field(_type => SortOrderInput, {
+            nullable: true
+        })
+    role?: SortOrderInput | undefined;
 }

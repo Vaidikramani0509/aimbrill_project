@@ -60,18 +60,6 @@ __decorate([
         nullable: false
     }),
     __metadata("design:type", Number)
-], EmployeesCountAggregate.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: false
-    }),
-    __metadata("design:type", Number)
-], EmployeesCountAggregate.prototype, "birthdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-        nullable: false
-    }),
-    __metadata("design:type", Number)
 ], EmployeesCountAggregate.prototype, "skills", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
@@ -85,6 +73,12 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], EmployeesCountAggregate.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+        nullable: false
+    }),
+    __metadata("design:type", Number)
+], EmployeesCountAggregate.prototype, "role", void 0);
 __decorate([
     TypeGraphQL.Field(_type => TypeGraphQL.Int, {
         nullable: false

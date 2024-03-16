@@ -2,8 +2,8 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { DateTimeWithAggregatesFilter } from "../inputs/DateTimeWithAggregatesFilter";
 import { EnumEmpstatusWithAggregatesFilter } from "../inputs/EnumEmpstatusWithAggregatesFilter";
+import { EnumRoleNullableWithAggregatesFilter } from "../inputs/EnumRoleNullableWithAggregatesFilter";
 import { IntWithAggregatesFilter } from "../inputs/IntWithAggregatesFilter";
 import { StringNullableWithAggregatesFilter } from "../inputs/StringNullableWithAggregatesFilter";
 import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
@@ -40,16 +40,6 @@ export class EmployeesScalarWhereWithAggregatesInput {
         })
     employeestatus?: EnumEmpstatusWithAggregatesFilter | undefined;
 
-    @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
-            nullable: true
-        })
-    joiningdate?: DateTimeWithAggregatesFilter | undefined;
-
-    @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
-            nullable: true
-        })
-    birthdate?: DateTimeWithAggregatesFilter | undefined;
-
     @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
             nullable: true
         })
@@ -64,4 +54,9 @@ export class EmployeesScalarWhereWithAggregatesInput {
             nullable: true
         })
     address?: StringNullableWithAggregatesFilter | undefined;
+
+    @TypeGraphQL.Field(_type => EnumRoleNullableWithAggregatesFilter, {
+            nullable: true
+        })
+    role?: EnumRoleNullableWithAggregatesFilter | undefined;
 }

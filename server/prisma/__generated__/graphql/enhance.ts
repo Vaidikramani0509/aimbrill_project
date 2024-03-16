@@ -185,7 +185,7 @@ const argsInfo = {
       }
 
 const modelsInfo = {
-        Employees: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"]
+        Employees: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"]
     };
 
       type ModelNames = keyof typeof models;
@@ -225,13 +225,13 @@ const modelsInfo = {
 
 const outputsInfo = {
         AggregateEmployees: ["_count", "_avg", "_sum", "_min", "_max"],
-        EmployeesGroupBy: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address", "_count", "_avg", "_sum", "_min", "_max"],
+        EmployeesGroupBy: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role", "_count", "_avg", "_sum", "_min", "_max"],
         AffectedRowsOutput: ["count"],
-        EmployeesCountAggregate: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address", "_all"],
+        EmployeesCountAggregate: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role", "_all"],
         EmployeesAvgAggregate: ["employeeid", "salarydetails"],
         EmployeesSumAggregate: ["employeeid", "salarydetails"],
-        EmployeesMinAggregate: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
-        EmployeesMaxAggregate: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"]
+        EmployeesMinAggregate: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
+        EmployeesMaxAggregate: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"]
     };
 
       type OutputTypesNames = keyof typeof outputTypes;
@@ -272,48 +272,48 @@ const outputsInfo = {
       }
 
 const inputsInfo = {
-        EmployeesWhereInput: ["AND", "OR", "NOT", "employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
-        EmployeesOrderByWithRelationInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
-        EmployeesWhereUniqueInput: ["employeeid", "AND", "OR", "NOT", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
-        EmployeesOrderByWithAggregationInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address", "_count", "_avg", "_max", "_min", "_sum"],
-        EmployeesScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
-        EmployeesCreateInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
-        EmployeesUpdateInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
-        EmployeesCreateManyInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
-        EmployeesUpdateManyMutationInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
+        EmployeesWhereInput: ["AND", "OR", "NOT", "employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
+        EmployeesOrderByWithRelationInput: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
+        EmployeesWhereUniqueInput: ["employeeid", "AND", "OR", "NOT", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
+        EmployeesOrderByWithAggregationInput: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role", "_count", "_avg", "_max", "_min", "_sum"],
+        EmployeesScalarWhereWithAggregatesInput: ["AND", "OR", "NOT", "employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
+        EmployeesCreateInput: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
+        EmployeesUpdateInput: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
+        EmployeesCreateManyInput: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
+        EmployeesUpdateManyMutationInput: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
         IntFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
         StringNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not"],
         EnumEmpstatusFilter: ["equals", "in", "notIn", "not"],
-        DateTimeFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
         StringFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not"],
+        EnumRoleNullableFilter: ["equals", "in", "notIn", "not"],
         SortOrderInput: ["sort", "nulls"],
-        EmployeesCountOrderByAggregateInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
+        EmployeesCountOrderByAggregateInput: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
         EmployeesAvgOrderByAggregateInput: ["employeeid", "salarydetails"],
-        EmployeesMaxOrderByAggregateInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
-        EmployeesMinOrderByAggregateInput: ["employeeid", "employeename", "employeestatus", "joiningdate", "birthdate", "skills", "salarydetails", "address"],
+        EmployeesMaxOrderByAggregateInput: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
+        EmployeesMinOrderByAggregateInput: ["employeeid", "employeename", "employeestatus", "skills", "salarydetails", "address", "role"],
         EmployeesSumOrderByAggregateInput: ["employeeid", "salarydetails"],
         IntWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"],
         StringNullableWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not", "_count", "_min", "_max"],
         EnumEmpstatusWithAggregatesFilter: ["equals", "in", "notIn", "not", "_count", "_min", "_max"],
-        DateTimeWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_min", "_max"],
         StringWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "mode", "not", "_count", "_min", "_max"],
+        EnumRoleNullableWithAggregatesFilter: ["equals", "in", "notIn", "not", "_count", "_min", "_max"],
         IntFieldUpdateOperationsInput: ["set", "increment", "decrement", "multiply", "divide"],
         NullableStringFieldUpdateOperationsInput: ["set"],
         EnumEmpstatusFieldUpdateOperationsInput: ["set"],
-        DateTimeFieldUpdateOperationsInput: ["set"],
         StringFieldUpdateOperationsInput: ["set"],
+        NullableEnumRoleFieldUpdateOperationsInput: ["set"],
         NestedIntFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
         NestedStringNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not"],
         NestedEnumEmpstatusFilter: ["equals", "in", "notIn", "not"],
-        NestedDateTimeFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
         NestedStringFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not"],
+        NestedEnumRoleNullableFilter: ["equals", "in", "notIn", "not"],
         NestedIntWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_avg", "_sum", "_min", "_max"],
         NestedFloatFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
         NestedStringNullableWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not", "_count", "_min", "_max"],
         NestedIntNullableFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not"],
         NestedEnumEmpstatusWithAggregatesFilter: ["equals", "in", "notIn", "not", "_count", "_min", "_max"],
-        NestedDateTimeWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "not", "_count", "_min", "_max"],
-        NestedStringWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not", "_count", "_min", "_max"]
+        NestedStringWithAggregatesFilter: ["equals", "in", "notIn", "lt", "lte", "gt", "gte", "contains", "startsWith", "endsWith", "not", "_count", "_min", "_max"],
+        NestedEnumRoleNullableWithAggregatesFilter: ["equals", "in", "notIn", "not", "_count", "_min", "_max"]
     };
 
       type InputTypesNames = keyof typeof inputTypes;

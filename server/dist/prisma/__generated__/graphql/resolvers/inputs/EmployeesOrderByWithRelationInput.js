@@ -62,18 +62,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Object)
-], EmployeesOrderByWithRelationInput.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesOrderByWithRelationInput.prototype, "birthdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
 ], EmployeesOrderByWithRelationInput.prototype, "skills", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
@@ -87,6 +75,12 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], EmployeesOrderByWithRelationInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => SortOrderInput_1.SortOrderInput, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesOrderByWithRelationInput.prototype, "role", void 0);
 exports.EmployeesOrderByWithRelationInput = EmployeesOrderByWithRelationInput = __decorate([
     TypeGraphQL.InputType("EmployeesOrderByWithRelationInput", {})
 ], EmployeesOrderByWithRelationInput);

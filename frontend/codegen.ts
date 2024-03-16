@@ -13,12 +13,6 @@ const config: CodegenConfig = {
             },
             plugins: [],
         },
-        // "src/api/__generated__/schema/schema.graphql": {
-        //   plugins: ["introspection"], // Optionally add introspection
-        //   config : {
-        //     skipTypename : true
-        //   }
-        // }
     }
 };
 

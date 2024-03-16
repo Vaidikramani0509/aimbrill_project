@@ -35,6 +35,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeesMinAggregate = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const Empstatus_1 = require("../../enums/Empstatus");
+const Role_1 = require("../../enums/Role");
 let EmployeesMinAggregate = class EmployeesMinAggregate {
 };
 exports.EmployeesMinAggregate = EmployeesMinAggregate;
@@ -57,18 +58,6 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesMinAggregate.prototype, "employeestatus", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesMinAggregate.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesMinAggregate.prototype, "birthdate", void 0);
-__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
@@ -86,6 +75,12 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], EmployeesMinAggregate.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => Role_1.Role, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesMinAggregate.prototype, "role", void 0);
 exports.EmployeesMinAggregate = EmployeesMinAggregate = __decorate([
     TypeGraphQL.ObjectType("EmployeesMinAggregate", {
         simpleResolvers: true

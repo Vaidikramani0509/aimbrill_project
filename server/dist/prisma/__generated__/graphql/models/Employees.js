@@ -35,6 +35,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Employees = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const Empstatus_1 = require("../enums/Empstatus");
+const Role_1 = require("../enums/Role");
 let Employees = class Employees {
 };
 exports.Employees = Employees;
@@ -57,18 +58,6 @@ __decorate([
     __metadata("design:type", String)
 ], Employees.prototype, "employeestatus", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: false
-    }),
-    __metadata("design:type", Date)
-], Employees.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: false
-    }),
-    __metadata("design:type", Date)
-], Employees.prototype, "birthdate", void 0);
-__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
@@ -86,6 +75,12 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], Employees.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => Role_1.Role, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], Employees.prototype, "role", void 0);
 exports.Employees = Employees = __decorate([
     TypeGraphQL.ObjectType("Employees", {
         simpleResolvers: true

@@ -34,8 +34,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeesScalarWhereWithAggregatesInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const DateTimeWithAggregatesFilter_1 = require("../inputs/DateTimeWithAggregatesFilter");
 const EnumEmpstatusWithAggregatesFilter_1 = require("../inputs/EnumEmpstatusWithAggregatesFilter");
+const EnumRoleNullableWithAggregatesFilter_1 = require("../inputs/EnumRoleNullableWithAggregatesFilter");
 const IntWithAggregatesFilter_1 = require("../inputs/IntWithAggregatesFilter");
 const StringNullableWithAggregatesFilter_1 = require("../inputs/StringNullableWithAggregatesFilter");
 const StringWithAggregatesFilter_1 = require("../inputs/StringWithAggregatesFilter");
@@ -79,18 +79,6 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesScalarWhereWithAggregatesInput.prototype, "employeestatus", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesScalarWhereWithAggregatesInput.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter_1.DateTimeWithAggregatesFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesScalarWhereWithAggregatesInput.prototype, "birthdate", void 0);
-__decorate([
     TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
         nullable: true
     }),
@@ -108,6 +96,12 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], EmployeesScalarWhereWithAggregatesInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => EnumRoleNullableWithAggregatesFilter_1.EnumRoleNullableWithAggregatesFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesScalarWhereWithAggregatesInput.prototype, "role", void 0);
 exports.EmployeesScalarWhereWithAggregatesInput = EmployeesScalarWhereWithAggregatesInput = __decorate([
     TypeGraphQL.InputType("EmployeesScalarWhereWithAggregatesInput", {})
 ], EmployeesScalarWhereWithAggregatesInput);

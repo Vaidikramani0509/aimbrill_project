@@ -2,9 +2,9 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
-import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { EmployeesWhereInput } from "../inputs/EmployeesWhereInput";
 import { EnumEmpstatusFilter } from "../inputs/EnumEmpstatusFilter";
+import { EnumRoleNullableFilter } from "../inputs/EnumRoleNullableFilter";
 import { IntFilter } from "../inputs/IntFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
@@ -41,16 +41,6 @@ export class EmployeesWhereUniqueInput {
         })
     employeestatus?: EnumEmpstatusFilter | undefined;
 
-    @TypeGraphQL.Field(_type => DateTimeFilter, {
-            nullable: true
-        })
-    joiningdate?: DateTimeFilter | undefined;
-
-    @TypeGraphQL.Field(_type => DateTimeFilter, {
-            nullable: true
-        })
-    birthdate?: DateTimeFilter | undefined;
-
     @TypeGraphQL.Field(_type => StringFilter, {
             nullable: true
         })
@@ -65,4 +55,9 @@ export class EmployeesWhereUniqueInput {
             nullable: true
         })
     address?: StringNullableFilter | undefined;
+
+    @TypeGraphQL.Field(_type => EnumRoleNullableFilter, {
+            nullable: true
+        })
+    role?: EnumRoleNullableFilter | undefined;
 }

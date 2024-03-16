@@ -67,18 +67,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Object)
-], EmployeesOrderByWithAggregationInput.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesOrderByWithAggregationInput.prototype, "birthdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
 ], EmployeesOrderByWithAggregationInput.prototype, "skills", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
@@ -92,6 +80,12 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], EmployeesOrderByWithAggregationInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => SortOrderInput_1.SortOrderInput, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesOrderByWithAggregationInput.prototype, "role", void 0);
 __decorate([
     TypeGraphQL.Field(_type => EmployeesCountOrderByAggregateInput_1.EmployeesCountOrderByAggregateInput, {
         nullable: true

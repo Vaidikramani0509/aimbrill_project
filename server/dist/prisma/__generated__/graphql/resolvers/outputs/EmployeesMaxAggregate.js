@@ -35,6 +35,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeesMaxAggregate = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const Empstatus_1 = require("../../enums/Empstatus");
+const Role_1 = require("../../enums/Role");
 let EmployeesMaxAggregate = class EmployeesMaxAggregate {
 };
 exports.EmployeesMaxAggregate = EmployeesMaxAggregate;
@@ -57,18 +58,6 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesMaxAggregate.prototype, "employeestatus", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesMaxAggregate.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesMaxAggregate.prototype, "birthdate", void 0);
-__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
@@ -86,6 +75,12 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], EmployeesMaxAggregate.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => Role_1.Role, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesMaxAggregate.prototype, "role", void 0);
 exports.EmployeesMaxAggregate = EmployeesMaxAggregate = __decorate([
     TypeGraphQL.ObjectType("EmployeesMaxAggregate", {
         simpleResolvers: true

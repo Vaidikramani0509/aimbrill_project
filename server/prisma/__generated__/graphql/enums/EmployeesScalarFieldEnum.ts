@@ -4,11 +4,10 @@ export enum EmployeesScalarFieldEnum {
     employeeid = "employeeid",
     employeename = "employeename",
     employeestatus = "employeestatus",
-    joiningdate = "joiningdate",
-    birthdate = "birthdate",
     skills = "skills",
     salarydetails = "salarydetails",
-    address = "address"
+    address = "address",
+    role = "role"
 }
 TypeGraphQL.registerEnumType(EmployeesScalarFieldEnum, {
       name: "EmployeesScalarFieldEnum",

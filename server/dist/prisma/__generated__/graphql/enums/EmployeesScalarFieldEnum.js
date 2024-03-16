@@ -30,11 +30,10 @@ var EmployeesScalarFieldEnum;
     EmployeesScalarFieldEnum["employeeid"] = "employeeid";
     EmployeesScalarFieldEnum["employeename"] = "employeename";
     EmployeesScalarFieldEnum["employeestatus"] = "employeestatus";
-    EmployeesScalarFieldEnum["joiningdate"] = "joiningdate";
-    EmployeesScalarFieldEnum["birthdate"] = "birthdate";
     EmployeesScalarFieldEnum["skills"] = "skills";
     EmployeesScalarFieldEnum["salarydetails"] = "salarydetails";
     EmployeesScalarFieldEnum["address"] = "address";
+    EmployeesScalarFieldEnum["role"] = "role";
 })(EmployeesScalarFieldEnum || (exports.EmployeesScalarFieldEnum = EmployeesScalarFieldEnum = {}));
 TypeGraphQL.registerEnumType(EmployeesScalarFieldEnum, {
     name: "EmployeesScalarFieldEnum",

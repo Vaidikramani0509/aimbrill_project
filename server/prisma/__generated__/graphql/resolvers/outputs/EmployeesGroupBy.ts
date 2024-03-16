@@ -8,6 +8,7 @@ import { EmployeesMaxAggregate } from "../outputs/EmployeesMaxAggregate";
 import { EmployeesMinAggregate } from "../outputs/EmployeesMinAggregate";
 import { EmployeesSumAggregate } from "../outputs/EmployeesSumAggregate";
 import { Empstatus } from "../../enums/Empstatus";
+import { Role } from "../../enums/Role";
 
 @TypeGraphQL.ObjectType("EmployeesGroupBy", {
         simpleResolvers: true
@@ -28,16 +29,6 @@ export class EmployeesGroupBy {
         })
     employeestatus!: "ACTIVE" | "INACTIVE";
 
-    @TypeGraphQL.Field(_type => Date, {
-            nullable: false
-        })
-    joiningdate!: Date;
-
-    @TypeGraphQL.Field(_type => Date, {
-            nullable: false
-        })
-    birthdate!: Date;
-
     @TypeGraphQL.Field(_type => String, {
             nullable: false
         })
@@ -52,6 +43,11 @@ export class EmployeesGroupBy {
             nullable: true
         })
     address!: string | null;
+
+    @TypeGraphQL.Field(_type => Role, {
+            nullable: true
+        })
+    role!: "MANAGER" | "DEVELOPER" | null;
 
     @TypeGraphQL.Field(_type => EmployeesCountAggregate, {
             nullable: true

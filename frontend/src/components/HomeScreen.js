@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { Button, Modal, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
+import { Button, Modal } from '@material-ui/core';
 import { useDropzone } from 'react-dropzone';
 import * as XLSX from 'xlsx';
 import { useMutation } from '@apollo/client';
-import * as mutations from '../models/Mutations'
+import * as mutations from '../models/mutations'
+import EmployeeTable from './EmployeeTable';
 
 function HomeScreen() {
     const [excelData, setExcelData] = useState([]);
-    const [showData, setShowData] = useState(false);
-    const [dataImported, setDataImported] = useState(false);
     const [openModal, setOpenModal] = useState(false);
+    const [fileName, setFileName] = useState('');
 
     const onDrop = (acceptedFiles) => {
         const file = acceptedFiles[0];
+        setFileName(file.name);
         const reader = new FileReader();
 
         reader.onload = (e) => {
@@ -22,28 +23,40 @@ function HomeScreen() {
             const worksheet = workbook.Sheets[sheetName];
             const excelData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
             setExcelData(excelData);
-            setDataImported(true);
         };
-        console.log(excelData, 'exceldata');
         reader.readAsArrayBuffer(file);
     };
 
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
-    const [] = useMutation(mutations.UPDATE_EMPLOYEE)
-    const handleImport = () => {
-        setShowData(true);
-        setOpenModal(false); // Close modal after importing data
+
+    const [updateEmployee] = useMutation(mutations.UPDATE_EMPLOYEE)
+    const handleImport = async () => {
+        try {
+            for (let i = 1; i < excelData.length; i++) {
+                const rowData = excelData[i];
+                console.log(rowData, 'date');
+                await updateEmployee({
+                    variables: {
+                        data: {
+                            employeeid: rowData[0],
+                            employeename: rowData[1],
+                            employeestatus: rowData[2],
+                            skills: rowData[3],
+                            salarydetails: rowData[4],
+                            address: rowData[5],
+                            role: rowData[6]
+                        }
+                    }
+                });
+            }
+            setOpenModal(false);
+            setExcelData([]);
+            setFileName('');
+        } catch (error) {
+            console.error('Error importing data:', error);
+        }
     };
-    const [createYoutubePublication] = useMutation(mutations.UPDATE_EMPLOYEE)
-    // const handleImport = async () => {
-    //     try {
-    //         await UpdateManyEmployee({ variables: { data: excelData } });
-    //         setShowData(true);
-    //         setOpenModal(false); // Close modal after importing data
-    //     } catch (error) {
-    //         console.error('Error importing data:', error);
-    //     }
-    // };
+
     const handleCloseModal = () => {
         setOpenModal(false);
     };
@@ -52,53 +65,25 @@ function HomeScreen() {
         setOpenModal(true);
     };
 
-    const renderTableCells = () => {
-        return excelData.map((row, index) => (
-            <TableRow key={index}>
-                {row.map((cell, index) => (
-                    <TableCell key={index}>{cell}</TableCell>
-                ))}
-            </TableRow>
-        ));
-    };
-
     return (
         <div>
-            <Button variant="contained" color="primary" onClick={handleOpenModal}>
-                Open Modal
-            </Button>
+
             <Modal open={openModal} onClose={handleCloseModal}>
                 <div style={modalStyles}>
                     <div {...getRootProps()} style={dropzoneStyles}>
                         <input {...getInputProps()} />
+                        {fileName && <p>File: {fileName}</p>}
                         <p>Drag 'n' drop an Excel file here, or click to select one</p>
                     </div>
                     <Button variant="contained" color="primary" onClick={handleImport}>
                         Import Data
                     </Button>
                     <h1>CSV File Upload</h1>
-                    {/* <FileUpload /> */}
                 </div>
             </Modal>
-            <TableContainer component={Paper} >
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>EmployeeID</TableCell>
-                            <TableCell>Employee Name</TableCell>
-                            <TableCell>Employee Status</TableCell>
-                            <TableCell>Joining Date</TableCell>
-                            <TableCell>BirthDate</TableCell>
-                            <TableCell>Skills</TableCell>
-                            <TableCell>Salary Details</TableCell>
-                            <TableCell>Address</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {showData && dataImported ? renderTableCells() : null}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            {(
+                <div><EmployeeTable handleOpenModal={handleOpenModal} /></div>
+            )}
         </div>
     );
 }

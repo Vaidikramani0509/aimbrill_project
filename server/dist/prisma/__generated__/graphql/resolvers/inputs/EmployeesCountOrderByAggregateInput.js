@@ -61,18 +61,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Object)
-], EmployeesCountOrderByAggregateInput.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesCountOrderByAggregateInput.prototype, "birthdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
 ], EmployeesCountOrderByAggregateInput.prototype, "skills", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
@@ -86,6 +74,12 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], EmployeesCountOrderByAggregateInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesCountOrderByAggregateInput.prototype, "role", void 0);
 exports.EmployeesCountOrderByAggregateInput = EmployeesCountOrderByAggregateInput = __decorate([
     TypeGraphQL.InputType("EmployeesCountOrderByAggregateInput", {})
 ], EmployeesCountOrderByAggregateInput);

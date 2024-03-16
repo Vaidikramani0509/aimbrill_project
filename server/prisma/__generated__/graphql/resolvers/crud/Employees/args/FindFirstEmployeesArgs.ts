@@ -35,5 +35,5 @@ export class FindFirstEmployeesArgs {
     @TypeGraphQL.Field(_type => [EmployeesScalarFieldEnum], {
             nullable: true
         })
-    distinct?: Array<"employeeid" | "employeename" | "employeestatus" | "joiningdate" | "birthdate" | "skills" | "salarydetails" | "address"> | undefined;
+    distinct?: Array<"employeeid" | "employeename" | "employeestatus" | "skills" | "salarydetails" | "address" | "role"> | undefined;
 }

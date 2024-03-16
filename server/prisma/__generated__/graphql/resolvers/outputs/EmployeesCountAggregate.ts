@@ -25,16 +25,6 @@ export class EmployeesCountAggregate {
     @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
             nullable: false
         })
-    joiningdate!: number;
-
-    @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-            nullable: false
-        })
-    birthdate!: number;
-
-    @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-            nullable: false
-        })
     skills!: number;
 
     @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
@@ -46,6 +36,11 @@ export class EmployeesCountAggregate {
             nullable: false
         })
     address!: number;
+
+    @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+            nullable: false
+        })
+    role!: number;
 
     @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
             nullable: false

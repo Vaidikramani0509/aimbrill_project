@@ -34,8 +34,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeesWhereInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
-const DateTimeFilter_1 = require("../inputs/DateTimeFilter");
 const EnumEmpstatusFilter_1 = require("../inputs/EnumEmpstatusFilter");
+const EnumRoleNullableFilter_1 = require("../inputs/EnumRoleNullableFilter");
 const IntFilter_1 = require("../inputs/IntFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
 const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
@@ -79,18 +79,6 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesWhereInput.prototype, "employeestatus", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesWhereInput.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => DateTimeFilter_1.DateTimeFilter, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesWhereInput.prototype, "birthdate", void 0);
-__decorate([
     TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true
     }),
@@ -108,6 +96,12 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], EmployeesWhereInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => EnumRoleNullableFilter_1.EnumRoleNullableFilter, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesWhereInput.prototype, "role", void 0);
 exports.EmployeesWhereInput = EmployeesWhereInput = __decorate([
     TypeGraphQL.InputType("EmployeesWhereInput", {})
 ], EmployeesWhereInput);

@@ -61,18 +61,6 @@ __decorate([
         nullable: true
     }),
     __metadata("design:type", Object)
-], EmployeesMaxOrderByAggregateInput.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesMaxOrderByAggregateInput.prototype, "birthdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
 ], EmployeesMaxOrderByAggregateInput.prototype, "skills", void 0);
 __decorate([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
@@ -86,6 +74,12 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], EmployeesMaxOrderByAggregateInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesMaxOrderByAggregateInput.prototype, "role", void 0);
 exports.EmployeesMaxOrderByAggregateInput = EmployeesMaxOrderByAggregateInput = __decorate([
     TypeGraphQL.InputType("EmployeesMaxOrderByAggregateInput", {})
 ], EmployeesMaxOrderByAggregateInput);

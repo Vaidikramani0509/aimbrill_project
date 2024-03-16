@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "@prisma/client";
 import { DecimalJSScalar } from "../../scalars";
 import { Empstatus } from "../../enums/Empstatus";
+import { Role } from "../../enums/Role";
 
 @TypeGraphQL.InputType("EmployeesCreateInput", {})
 export class EmployeesCreateInput {
@@ -21,16 +22,6 @@ export class EmployeesCreateInput {
         })
     employeestatus!: "ACTIVE" | "INACTIVE";
 
-    @TypeGraphQL.Field(_type => Date, {
-            nullable: false
-        })
-    joiningdate!: Date;
-
-    @TypeGraphQL.Field(_type => Date, {
-            nullable: false
-        })
-    birthdate!: Date;
-
     @TypeGraphQL.Field(_type => String, {
             nullable: false
         })
@@ -45,4 +36,9 @@ export class EmployeesCreateInput {
             nullable: true
         })
     address?: string | undefined;
+
+    @TypeGraphQL.Field(_type => Role, {
+            nullable: true
+        })
+    role?: "MANAGER" | "DEVELOPER" | undefined;
 }

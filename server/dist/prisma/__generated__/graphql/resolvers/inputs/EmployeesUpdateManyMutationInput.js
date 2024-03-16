@@ -35,6 +35,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.EmployeesUpdateManyMutationInput = void 0;
 const TypeGraphQL = __importStar(require("type-graphql"));
 const Empstatus_1 = require("../../enums/Empstatus");
+const Role_1 = require("../../enums/Role");
 let EmployeesUpdateManyMutationInput = class EmployeesUpdateManyMutationInput {
 };
 exports.EmployeesUpdateManyMutationInput = EmployeesUpdateManyMutationInput;
@@ -57,18 +58,6 @@ __decorate([
     __metadata("design:type", Object)
 ], EmployeesUpdateManyMutationInput.prototype, "employeestatus", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesUpdateManyMutationInput.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: true
-    }),
-    __metadata("design:type", Object)
-], EmployeesUpdateManyMutationInput.prototype, "birthdate", void 0);
-__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: true
     }),
@@ -86,6 +75,12 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], EmployeesUpdateManyMutationInput.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => Role_1.Role, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesUpdateManyMutationInput.prototype, "role", void 0);
 exports.EmployeesUpdateManyMutationInput = EmployeesUpdateManyMutationInput = __decorate([
     TypeGraphQL.InputType("EmployeesUpdateManyMutationInput", {})
 ], EmployeesUpdateManyMutationInput);

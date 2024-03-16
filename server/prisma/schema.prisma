@@ -19,18 +19,23 @@ datasource db {
   url               = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
+ 
 
 model employees {
   employeeid     Int       @id @unique  
   employeename   String?   @db.VarChar(100)
   employeestatus Empstatus
-  joiningdate    DateTime 
-  birthdate      DateTime
   skills         String
   salarydetails  Int
   address        String?
+  role           Role?
 }
 enum Empstatus{
   ACTIVE
   INACTIVE
+}
+
+enum Role {
+  MANAGER
+  DEVELOPER
 }

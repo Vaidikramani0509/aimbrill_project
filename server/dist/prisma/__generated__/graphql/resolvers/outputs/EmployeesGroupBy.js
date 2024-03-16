@@ -40,6 +40,7 @@ const EmployeesMaxAggregate_1 = require("../outputs/EmployeesMaxAggregate");
 const EmployeesMinAggregate_1 = require("../outputs/EmployeesMinAggregate");
 const EmployeesSumAggregate_1 = require("../outputs/EmployeesSumAggregate");
 const Empstatus_1 = require("../../enums/Empstatus");
+const Role_1 = require("../../enums/Role");
 let EmployeesGroupBy = class EmployeesGroupBy {
 };
 exports.EmployeesGroupBy = EmployeesGroupBy;
@@ -62,18 +63,6 @@ __decorate([
     __metadata("design:type", String)
 ], EmployeesGroupBy.prototype, "employeestatus", void 0);
 __decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: false
-    }),
-    __metadata("design:type", Date)
-], EmployeesGroupBy.prototype, "joiningdate", void 0);
-__decorate([
-    TypeGraphQL.Field(_type => Date, {
-        nullable: false
-    }),
-    __metadata("design:type", Date)
-], EmployeesGroupBy.prototype, "birthdate", void 0);
-__decorate([
     TypeGraphQL.Field(_type => String, {
         nullable: false
     }),
@@ -91,6 +80,12 @@ __decorate([
     }),
     __metadata("design:type", Object)
 ], EmployeesGroupBy.prototype, "address", void 0);
+__decorate([
+    TypeGraphQL.Field(_type => Role_1.Role, {
+        nullable: true
+    }),
+    __metadata("design:type", Object)
+], EmployeesGroupBy.prototype, "role", void 0);
 __decorate([
     TypeGraphQL.Field(_type => EmployeesCountAggregate_1.EmployeesCountAggregate, {
         nullable: true
