@@ -16,19 +16,8 @@ const utils_keyvaluecache_1 = require("@apollo/utils.keyvaluecache");
 const path_1 = require("path");
 const client_1 = require("../prisma/__generated__/client");
 const moment_timezone_1 = __importDefault(require("moment-timezone"));
-const multer_1 = __importDefault(require("multer"));
-const csv_parser_1 = __importDefault(require("csv-parser"));
-const fs_1 = __importDefault(require("fs"));
-const pg_1 = require("pg");
 const graphql_1 = require("../prisma/__generated__/graphql");
 moment_timezone_1.default.tz.setDefault("UTC");
-const pool = new pg_1.Pool({
-    user: process.env.DB_USER || 'postgres',
-    host: process.env.DB_HOST || 'localhost:5432',
-    database: process.env.DB_NAME || 'postgres',
-    password: process.env.DB_PASSWORD || 'admin123',
-    port: 5432
-});
 const main = async () => {
     const app = (0, express_1.default)();
     app.use(express_1.default.json({ limit: "10GB" }));
@@ -41,49 +30,6 @@ const main = async () => {
         ],
         credentials: true,
     }));
-    const upload = (0, multer_1.default)({ dest: "upload/" });
-    app.post("/upload/", upload.single("file"), async (req, res) => {
-        try {
-            if (!req.file) {
-                return res.status(400).json({ message: "No file uploaded" });
-            }
-            const results = [];
-            fs_1.default.createReadStream(req.file.path)
-                .pipe((0, csv_parser_1.default)())
-                .on("data", (data) => results.push(data))
-                .on("end", async () => {
-                try {
-                    for (const row of results) {
-                        await client_1.prismaClient.employees.create({
-                            data: {
-                                birthdate: '23/02/2023',
-                                employeestatus: 'ACTIVE',
-                                joiningdate: '20/23/4',
-                                salarydetails: 2000,
-                                address: '',
-                                employeeid: 2,
-                                employeename: 'testname',
-                                skills: ['prisma', 'react.js']
-                            }
-                        });
-                    }
-                    res
-                        .status(200)
-                        .json({ message: "File uploaded and data inserted successfully" });
-                }
-                catch (error) {
-                    console.error("Error inserting data into PostgreSQL:", error);
-                    res
-                        .status(500)
-                        .json({ message: "Error inserting data into PostgreSQL" });
-                }
-            });
-        }
-        catch (error) {
-            console.error("Error uploading file:", error);
-            res.status(500).json({ message: "Error uploading file" });
-        }
-    });
     const apolloServer = new apollo_server_express_1.ApolloServer({
         plugins: [(0, apollo_server_core_1.ApolloServerPluginLandingPageGraphQLPlayground)()],
         schema: await (0, type_graphql_1.buildSchema)({
