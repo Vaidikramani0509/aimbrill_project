@@ -1,6 +1,0 @@
-mutation createmanyemplye($data:[EmployeesCreateManyInput!]!){
-  createManyEmployees(data :$data){
-    count
-    __typename
-  }
-}

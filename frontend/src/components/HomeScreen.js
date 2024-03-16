@@ -11,8 +11,13 @@ function HomeScreen() {
     const [openModal, setOpenModal] = useState(false);
     const [fileName, setFileName] = useState('');
 
+    const [error, setError] = useState('');
     const onDrop = (acceptedFiles) => {
         const file = acceptedFiles[0];
+        if (file.type !== 'application/vnd.ms-excel' && file.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') {
+            setError('Please upload an Excel file.');
+            return;
+        }
         setFileName(file.name);
         const reader = new FileReader();
 
@@ -23,6 +28,7 @@ function HomeScreen() {
             const worksheet = workbook.Sheets[sheetName];
             const excelData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
             setExcelData(excelData);
+            setError('')
         };
         reader.readAsArrayBuffer(file);
     };
@@ -30,11 +36,11 @@ function HomeScreen() {
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
     const [updateEmployee] = useMutation(mutations.UPDATE_EMPLOYEE)
+   
     const handleImport = async () => {
         try {
             for (let i = 1; i < excelData.length; i++) {
                 const rowData = excelData[i];
-                console.log(rowData, 'date');
                 await updateEmployee({
                     variables: {
                         data: {
@@ -56,7 +62,7 @@ function HomeScreen() {
             console.error('Error importing data:', error);
         }
     };
-
+   
     const handleCloseModal = () => {
         setOpenModal(false);
     };
@@ -67,18 +73,24 @@ function HomeScreen() {
 
     return (
         <div>
-
             <Modal open={openModal} onClose={handleCloseModal}>
                 <div style={modalStyles}>
+                    <div>Import Items</div>
+                    <div onClick={handleCloseModal}>X</div>
                     <div {...getRootProps()} style={dropzoneStyles}>
                         <input {...getInputProps()} />
                         {fileName && <p>File: {fileName}</p>}
                         <p>Drag 'n' drop an Excel file here, or click to select one</p>
                     </div>
-                    <Button variant="contained" color="primary" onClick={handleImport}>
-                        Import Data
-                    </Button>
-                    <h1>CSV File Upload</h1>
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <Button variant="outlined" color="primary" onClick={handleCloseModal}>
+                            cancle
+                        </Button>
+                        <Button variant="contained" color="primary" onClick={handleImport}>
+                            Import
+                        </Button>
+                    </div>
                 </div>
             </Modal>
             {(

@@ -8,3 +8,19 @@ export const UPDATE_EMPLOYEE = gql`
           }
     }
 `
+export const DELETE_ONE_EMPLOYEE = gql`
+mutation ($where:EmployeesWhereUniqueInput!){
+    deleteOneEmployees(where:$where){
+      employeeid
+    }
+  }
+`
+export const UPDATE_ONE_EMPLOYEE = gql`
+mutation updateOneEmployees ($data:EmployeesUpdateInput!  $where:EmployeesWhereUniqueInput!){
+  updateOneEmployees(data:$data, where:$where){
+    employeeid
+    employeename
+  }
+}
+
+`
