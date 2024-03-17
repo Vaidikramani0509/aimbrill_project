@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import * as mutations from "../models/mutations";
 import EmployeeModal from "./EmployeeModal";
 import "react-toastify/dist/ReactToastify.css";
-const GET_EMPLOYEES = gql`
+export const GET_EMPLOYEES = gql`
   query {
     findManyEmployees {
       employeeid

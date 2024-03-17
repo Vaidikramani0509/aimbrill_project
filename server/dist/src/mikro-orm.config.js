@@ -12,7 +12,7 @@ exports.default = {
         glob: '!(*.d).{js,ts}',
         disableForeignKeys: false
     },
-    entities: [Employee_1.Employee,],
+    entities: [Employee_1.Employee],
     dbName: String(process.env.DATABASE),
     type: 'postgresql',
     user: String(process.env.DB_USER),

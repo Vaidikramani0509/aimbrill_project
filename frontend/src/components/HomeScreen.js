@@ -4,7 +4,7 @@ import { useDropzone } from 'react-dropzone';
 import * as XLSX from 'xlsx';
 import { useMutation } from '@apollo/client';
 import * as mutations from '../models/mutations'
-import EmployeeTable from './EmployeeTable';
+import EmployeeTable, { GET_EMPLOYEES } from './EmployeeTable';
 
 function HomeScreen() {
     const [excelData, setExcelData] = useState([]);
@@ -35,7 +35,9 @@ function HomeScreen() {
 
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
-    const [updateEmployee] = useMutation(mutations.UPDATE_EMPLOYEE)
+    const [updateEmployee] = useMutation(mutations.UPDATE_EMPLOYEE, {
+        refetchQueries: [{ query: GET_EMPLOYEES }]
+    })
 
     const handleImport = async () => {
         try {
