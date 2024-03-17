@@ -36,7 +36,7 @@ function HomeScreen() {
     const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
     const [updateEmployee] = useMutation(mutations.UPDATE_EMPLOYEE)
-   
+
     const handleImport = async () => {
         try {
             for (let i = 1; i < excelData.length; i++) {
@@ -62,7 +62,7 @@ function HomeScreen() {
             console.error('Error importing data:', error);
         }
     };
-   
+
     const handleCloseModal = () => {
         setOpenModal(false);
     };
@@ -76,7 +76,6 @@ function HomeScreen() {
             <Modal open={openModal} onClose={handleCloseModal}>
                 <div style={modalStyles}>
                     <div>Import Items</div>
-                    <div onClick={handleCloseModal}>X</div>
                     <div {...getRootProps()} style={dropzoneStyles}>
                         <input {...getInputProps()} />
                         {fileName && <p>File: {fileName}</p>}

@@ -1,8 +1,27 @@
-import { Dialog, DialogTitle, DialogContent } from "@material-ui/core";
+import { Dialog, DialogTitle, DialogContent, TextField, Button, Select, MenuItem } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import { useState } from "react";
 
+const useStyles = makeStyles((theme) => ({
+    dialog: {
+        minWidth: 400,
+    },
+    form: {
+        display: "grid",
+        gap: theme.spacing(2),
+    },
+    button: {
+        backgroundColor: theme.palette.primary.main,
+        color: "#fff",
+        "&:hover": {
+            backgroundColor: theme.palette.primary.dark,
+        },
+    },
+}));
+
 export default function EmployeeModal({ employee, handleCloseModal, handleSaveChanges }) {
-    const [updatedEmployee, setUpdatedEmployee] = useState(employee);
+    const classes = useStyles();
+    const [updatedEmployee, setUpdatedEmployee] = useState({ ...employee });
 
     const handleChange = (event) => {
         setUpdatedEmployee({
@@ -10,77 +29,78 @@ export default function EmployeeModal({ employee, handleCloseModal, handleSaveCh
             [event.target.name]: event.target.value,
         });
     };
-
+    const employeeStatusOptions = ["ACTIVE", "INACTIVE"]
+    const employeeRoleOptions = ["MANAGER", "DEVELOPER"]
     return (
-        <div>
-            <Dialog open={true} onClose={handleCloseModal}>
-                <DialogTitle>Edit Employee</DialogTitle>
-                <DialogContent>
-                    <div
+        <Dialog open={true} onClose={handleCloseModal} className={classes.dialog}>
+            <DialogTitle>Edit Employee</DialogTitle>
+            <DialogContent>
+                <form className={classes.form}>
+                    <TextField
+                        label="Employee Name"
+                        name="employeename"
+                        value={updatedEmployee.employeename}
+                        onChange={handleChange}
+                        variant="outlined"
+                    />
+                    <TextField
+                        label="Address"
+                        name="address"
+                        value={updatedEmployee.address}
+                        onChange={handleChange}
+                        variant="outlined"
+                    />
+                    <Select
+                        label="Employee Status"
+                        name="employeestatus"
+                        value={updatedEmployee.employeestatus}
+                        onChange={handleChange}
+                        variant="outlined"
                     >
-                        <h4>Edit Employee</h4>
-                        <form>
-                            <div>
-                                <label htmlFor="employeename">Employee Name:</label>
-                                <input
-                                    type="text"
-                                    name="employeename"
-                                    value={updatedEmployee.employeename}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="address">Address:</label>
-                                <input
-                                    type="text"
-                                    name="address"
-                                    value={updatedEmployee.address}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="employeestatus">Employee Status:</label>
-                                <input
-                                    type="text"
-                                    name="employeestatus"
-                                    value={updatedEmployee.employeestatus}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="skills">Skills:</label>
-                                <input
-                                    type="text"
-                                    name="skills"
-                                    value={updatedEmployee.skills}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="salarydetails">SalaryDetails:</label>
-                                <input
-                                    type="text"
-                                    name="salarydetails"
-                                    value={updatedEmployee.salarydetails}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="role">Role:</label>
-                                <input
-                                    type="text"
-                                    name="role"
-                                    value={updatedEmployee.role}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <button type="button" onClick={() => handleSaveChanges(updatedEmployee)}>
-                                Save Changes
-                            </button>
-                        </form>
-                    </div>
-                </DialogContent>
-            </Dialog >
-        </div>
+                        {employeeStatusOptions.map((option) => (
+
+                            <MenuItem key={option} value={option}>
+                                {option}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                    <TextField
+                        label="Skills"
+                        name="skills"
+                        value={updatedEmployee.skills}
+                        onChange={handleChange}
+                        variant="outlined"
+                    />
+                    <TextField
+                        label="SalaryDetails"
+                        name="salarydetails"
+                        value={updatedEmployee.salarydetails}
+                        onChange={handleChange}
+                        variant="outlined"
+                    />
+                    <Select
+                        label="Role"
+                        name="role"
+                        value={updatedEmployee.role}
+                        onChange={handleChange}
+                        variant="outlined"
+                    >
+                        {employeeRoleOptions.map((option) => (
+
+                            <MenuItem key={option} value={option}>
+                                {option}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                    <Button
+                        className={classes.button}
+                        variant="contained"
+                        onClick={() => handleSaveChanges(updatedEmployee)}
+                    >
+                        Save Changes
+                    </Button>
+                </form>
+            </DialogContent>
+        </Dialog>
     );
-};
+}

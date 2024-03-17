@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useQuery, gql, useMutation } from "@apollo/client";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { Button } from "@material-ui/core";
+import { ToastContainer, toast } from "react-toastify";
 import * as mutations from "../models/mutations";
 import EmployeeModal from "./EmployeeModal";
-
+import "react-toastify/dist/ReactToastify.css";
 const GET_EMPLOYEES = gql`
   query {
     findManyEmployees {
@@ -21,17 +22,21 @@ const GET_EMPLOYEES = gql`
 
 export default function EmployeeTable({ handleOpenModal }) {
   const { data, loading, error } = useQuery(GET_EMPLOYEES);
-  const [removeEmployee] = useMutation(mutations.DELETE_ONE_EMPLOYEE);
-  const [updateEmployeeData] = useMutation(mutations.UPDATE_ONE_EMPLOYEE);
+  const [removeEmployee] = useMutation(mutations.DELETE_ONE_EMPLOYEE, {
+    refetchQueries: [{ query: GET_EMPLOYEES }]
+  });
+  const [updateEmployeeData] = useMutation(mutations.UPDATE_ONE_EMPLOYEE, {
+    refetchQueries: [{ query: GET_EMPLOYEES }]
+  });
   const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   const handleDelete = (employeeId) => {
     removeEmployee({ variables: { where: { employeeid: employeeId } } })
       .then(() => {
-        console.log(`successfully deleted ${employeeId}`);
+        toast.success("Employee deleted successfully", { className: 'toast-success' });
       })
-      .catch((error) => {
-        console.error("Error deleting employee:", error);
+      .catch(() => {
+        toast.error("Error !", { className: 'toast-error' });
       });
   };
 
@@ -60,10 +65,12 @@ export default function EmployeeTable({ handleOpenModal }) {
     })
       .then(() => {
         console.log(`successfully updated employee ${updatedEmployee.employeeid}`);
+        toast.success("Employee data updated successfully");
         handleCloseModal();
       })
       .catch((error) => {
         console.error("Error updating employee:", error);
+        toast.error("Error updating employee");
       });
   };
 
@@ -114,46 +121,49 @@ export default function EmployeeTable({ handleOpenModal }) {
   }));
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <div style={{ width: "80%" }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-            marginBottom: "25px",
-            marginTop: "50px",
-          }}
-        >
-          <h4 style={{ textAlign: "center", padding: "10px" }}>
-            Employee Details
-          </h4>
-          <Button variant="outlined" color="primary" onClick={handleOpenModal}>
-            ADD DETAILS +
-          </Button>
-        </div>
-        <div style={{ height: 400, width: "100%", textAlign: "center" }}>
-          <DataGrid
-            rows={formattedData}
-            columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
-            checkboxSelection
-            components={{
-              Toolbar: GridToolbar,
+    <>
+      <ToastContainer position="top-right" />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ width: "80%" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+              marginBottom: "25px",
+              marginTop: "50px",
             }}
-            density="compact"
-          />
+          >
+            <h4 style={{ textAlign: "center", padding: "10px" }}>
+              Employee Details
+            </h4>
+            <Button variant="outlined" color="primary" onClick={handleOpenModal}>
+              ADD DETAILS +
+            </Button>
+          </div>
+          <div style={{ height: 400, width: "100%", textAlign: "center" }}>
+            <DataGrid
+              rows={formattedData}
+              columns={columns}
+              pageSize={5}
+              rowsPerPageOptions={[5]}
+              checkboxSelection
+              components={{
+                Toolbar: GridToolbar,
+              }}
+              density="compact"
+            />
+          </div>
+          {selectedEmployee && (
+            <EmployeeModal
+              employee={selectedEmployee}
+              handleCloseModal={handleCloseModal}
+              handleSaveChanges={handleSaveChanges}
+            />
+          )}
         </div>
-        {selectedEmployee && (
-          <EmployeeModal
-            employee={selectedEmployee}
-            handleCloseModal={handleCloseModal}
-            handleSaveChanges={handleSaveChanges}
-          />
-        )}
       </div>
-    </div>
+    </>
   );
 }

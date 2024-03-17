@@ -32,16 +32,6 @@ __decorate([
 ], Employee.prototype, "employeestatus", void 0);
 __decorate([
     (0, type_graphql_1.Field)({ nullable: true }),
-    (0, core_1.Property)({ type: "date", nullable: true }),
-    __metadata("design:type", Date)
-], Employee.prototype, "joiningdate", void 0);
-__decorate([
-    (0, type_graphql_1.Field)({ nullable: true }),
-    (0, core_1.Property)({ type: "date", nullable: true }),
-    __metadata("design:type", Date)
-], Employee.prototype, "birthdate", void 0);
-__decorate([
-    (0, type_graphql_1.Field)({ nullable: true }),
     (0, core_1.Property)({ type: "text", nullable: true }),
     __metadata("design:type", String)
 ], Employee.prototype, "skills", void 0);

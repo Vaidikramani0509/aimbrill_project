@@ -20,7 +20,6 @@ datasource db {
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
  
-
 model employees {
   employeeid     Int       @id @unique  
   employeename   String?   @db.VarChar(100)
