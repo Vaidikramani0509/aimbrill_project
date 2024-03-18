@@ -5,6 +5,7 @@ import * as XLSX from 'xlsx';
 import { useMutation } from '@apollo/client';
 import * as mutations from '../models/mutations'
 import EmployeeTable, { GET_EMPLOYEES } from './EmployeeTable';
+import DownloadExcelButton from './ExcelFile';
 
 function HomeScreen() {
     const [excelData, setExcelData] = useState([]);
@@ -84,6 +85,11 @@ function HomeScreen() {
                         <p>Drag 'n' drop an Excel file here, or click to select one</p>
                     </div>
                     {error && <p style={{ color: 'red' }}>{error}</p>}
+                    <div style={{ display: 'flex', fontSize: 'smaller' }}>
+                        <p style={{ fontSize: 'smaller' }}>Importing requires Microsoft Excel .xlsx format </p>
+                        <span><DownloadExcelButton /></span>
+                    </div>
+
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <Button variant="outlined" color="primary" onClick={handleCloseModal}>
                             cancle
@@ -93,11 +99,13 @@ function HomeScreen() {
                         </Button>
                     </div>
                 </div>
-            </Modal>
+            </Modal >
             {(
                 <div><EmployeeTable handleOpenModal={handleOpenModal} /></div>
-            )}
-        </div>
+            )
+            }
+
+        </div >
     );
 }
 
